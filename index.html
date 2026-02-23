@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>DigiPix | Elevated Images</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #000;
+      padding: 3rem 2rem 2rem 2rem;
+      text-align: center;
+    }
+
+    header img {
+      max-width: 440px;
+      height: auto;
+      margin-bottom: 1.5rem;
+    }
+
+    header h1 {
+      color: white;
+      font-weight: 400;
+      font-size: 1.6rem;
+      letter-spacing: 1px;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .process-image {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .process-image img {
+      max-width: 700px;
+      width: 100%;
+      border-radius: 12px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
+    }
+
+    .step {
+      background: #111;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #1f1f1f;
+      transition: 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+      border-color: #333;
+    }
+
+    .step h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .step p {
+      color: #ccc;
+    }
+
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 1rem;
+    }
+
+    .portfolio-grid img {
+      width: 100%;
+      border-radius: 12px;
+      transition: 0.3s ease;
+      cursor: pointer;
+    }
+
+    .portfolio-grid img:hover {
+      transform: scale(1.03);
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: #ccc;
+    }
+
+    .contact a {
+      color: #38bdf8;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .contact a:hover {
+      color: #0ea5e9;
+    }
+
+    footer {
+      background: #000;
+      color: #777;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #111;
+    }
+
+    @media (max-width: 600px) {
+      header img {
+        max-width: 300px;
+      }
+
+      header h1 {
+        font-size: 1.3rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="images/Digipix_logo_v03.jpg" alt="DigiPix Logo">
+    <h1>Elevated images</h1>
+  </header>
+
+  <!-- PROCESS SECTION -->
+  <section>
+    <h2>How It Works</h2>
+
+    <div class="process-image">
+      <img src="images/process_v01.png" alt="DigiPix Process">
+    </div>
+
+    <div class="steps">
+      <div class="step">
+        <h3>1. Send in your candid photo</h3>
+        <p>Start with a natural, everyday image. No studio setup needed.</p>
+      </div>
+
+      <div class="step">
+        <h3>2. We create you a 'Digiprofile'</h3>
+        <p>Your virtual likeness is created and ready for you.</p>
+      </div>
+
+      <div class="step">
+        <h3>3. Receive eye-catching professional photos</h3>
+        <p>We craft you elegant, attention-grabbing images built from your Digiprofile.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- PORTFOLIO SECTION -->
+  <section>
+    <h2>Portfolio</h2>
+
+    <div class="portfolio-grid">
+      <img src="images/example_final1.png" alt="DigiPix Portfolio Example 1">
+      <img src="images/example_final2.png" alt="DigiPix Portfolio Example 2">
+      <img src="images/example_final3.png" alt="DigiPix Portfolio Example 3">
+    </div>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact">
+    <h2>Get In Touch</h2>
+    <p>
+      Have a photo ready? Or just curious what’s possible?
+      <br><br>
+      Email us at <a href="mailto:hello@digipix.nz">hello@digipix.nz</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2026 DigiPix | Wellington, New Zealand
+  </footer>
+
+</body>
+</html>
