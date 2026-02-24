@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>DigiPix | Elevated Images</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
@@ -155,14 +154,23 @@
 
   <!-- HEADER -->
   <header>
-    <img src="images/Digipix_logo_v03.jpg" alt="DigiPix Logo">
-    <h1>Elevated images</h1>
-  </header>
-
+    <img src="images/Digipix_logo_v06.jpg" alt="DigiPix Logo">
+    
   <!-- PROCESS SECTION -->
-    <div class="process-image">
-      <img src="images/ProcessOnBlackHorizontal_v02.jpg" alt="DigiPix Process">
-    </div>
+  <div class="process-image">
+    <picture>
+      <!-- Vertical version for small/mobile screens -->
+      <source 
+        srcset="images/ProcessOnBlackVertical.jpg" 
+        media="(max-width: 768px) and (orientation: portrait)">
+
+      <!-- Default (desktop + landscape) -->
+      <img 
+        src="images/ProcessOnBlackHorizontal_v02.jpg" 
+        alt="DigiPix Process">
+    </picture>
+  </div>
+
   </section>
 
  <!-- ABOUT ME SECTION -->
@@ -177,25 +185,11 @@
   </section>
 
 
-
-
-
-  <!-- PORTFOLIO SECTION -->
-  <section>
-    <h2>Portfolio</h2>
-
-    <div class="portfolio-grid">
-      <img src="images/example_final1.png" alt="DigiPix Portfolio Example 1">
-      <img src="images/example_final2.png" alt="DigiPix Portfolio Example 2">
-      <img src="images/example_final3.png" alt="DigiPix Portfolio Example 3">
-    </div>
-  </section>
-
   <!-- CONTACT SECTION -->
   <section class="contact">
     <h2>Get In Touch</h2>
     <p>
-      Ready to elevate your image? Or just curious what’s possible? I'd love to hear from you
+      Ready to elevate your image? Or just curious what’s possible? I'd love to hear from you!
       <br><br>
       Email us at <a href="mailto:hello@digipix.nz">hello@digipix.nz</a>
     </p>
