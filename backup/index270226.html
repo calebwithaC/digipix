@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>DigiPix | Professional Portraits Made Accessible</title>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="images/Digipix_logo_v05.png">
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      background: #000;
+      color: #f5f5f5;
+      line-height: 1.6;
+    }
+
+    header {
+      background: #000;
+      padding: 3.5rem 2rem 2rem 2rem;
+      text-align: center;
+      border-bottom: 1px solid #111;
+    }
+
+    header img {
+      max-width: 440px;
+      width: 90%;
+      height: auto;
+      margin-bottom: 1.2rem;
+    }
+
+    header p {
+      color: #bbb;
+      font-size: 1.1rem;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+
+    section {
+      padding: 4rem 2rem;
+      max-width: 1100px;
+      margin: auto;
+    }
+
+    section h2 {
+      text-align: center;
+      margin-bottom: 2.5rem;
+      font-size: 2rem;
+      font-weight: 600;
+    }
+
+    .process-image {
+      text-align: center;
+      margin-bottom: 3rem;
+    }
+
+    .process-image img {
+      width: 100%;
+      max-width: 1000px;
+      height: auto;
+      border-radius: 12px;
+    }
+
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      text-align: center;
+      margin-top: 2rem;
+    }
+
+    .step {
+      background: #111;
+      padding: 2rem;
+      border-radius: 12px;
+      border: 1px solid #1f1f1f;
+      transition: 0.3s ease;
+    }
+
+    .step:hover {
+      transform: translateY(-5px);
+      border-color: #333;
+    }
+
+    .step h3 {
+      margin-bottom: 1rem;
+      font-size: 1.2rem;
+      font-weight: 600;
+    }
+
+    .step p {
+      color: #ccc;
+    }
+
+    .cta {
+      text-align: center;
+      margin-top: 2.5rem;
+    }
+
+    .cta a {
+      background: #38bdf8;
+      padding: 0.9rem 2rem;
+      border-radius: 40px;
+      text-decoration: none;
+      color: black;
+      font-weight: 600;
+    }
+
+    .cta a:hover {
+      background: #0ea5e9;
+    }
+
+    .contact {
+      text-align: center;
+    }
+
+    .contact p {
+      color: #ccc;
+      max-width: 700px;
+      margin: auto;
+    }
+
+    .contact a {
+      color: #38bdf8;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    footer {
+      background: #000;
+      color: #777;
+      text-align: center;
+      padding: 2rem;
+      font-size: 0.9rem;
+      border-top: 1px solid #111;
+    }
+
+    /* MOBILE TIGHTENING */
+    @media (max-width: 768px) {
+
+      section {
+        padding: 2.5rem 1.2rem;
+      }
+
+      header {
+        padding: 2.5rem 1rem 1.5rem 1rem;
+      }
+
+      header img {
+        width: 92%;
+        max-width: 440px;
+      }
+
+      section h2 {
+        font-size: 1.6rem;
+        margin-bottom: 1.8rem;
+      }
+
+      .process-image {
+        margin-bottom: 2rem;
+      }
+
+      .contact p {
+        font-size: 0.95rem;
+      }
+    }
+
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <header>
+    <img src="images/Digipix_logo_v06.jpg" alt="DigiPix Logo">
+    <p>
+      Professional portraits and promotional imagery for small businesses and local creatives.
+    </p>
+  </header>
+
+  <!-- PROCESS SECTION -->
+  <section>
+    <h2>How It Works</h2>
+
+    <div class="process-image">
+      <picture>
+        <source 
+          srcset="images/ProcessOnBlackVertical_v02.jpeg" 
+          media="(max-width: 768px) and (orientation: portrait)">
+        <img 
+          src="images/ProcessOnBlackHorizontal_v03.jpeg" 
+          alt="DigiPix Process">
+      </picture>
+    </div>
+
+    <div class="cta">
+      <a href="mailto:caleb@digipix.nz">Elevate Your Image</a>
+    </div>
+  </section>
+
+  <!-- FLEXIBLE & LOCAL SECTION -->
+  <section class="contact">
+    <h2>Flexible & Local</h2>
+    <p>
+      Based in Wellington, I work directly with small businesses, local theatres and anyone wanting a polished image of themselves.  
+      I can visit for a simple photo session — or you can send images to me directly.
+      <br><br>
+      Professional images without the cost of a full studio shoot.
+    </p>
+  </section>
+
+  <!-- ABOUT SECTION -->
+  <section class="contact">
+    <h2>Why Work With Me?</h2>
+    <p>
+      After graduating from the New Zealand Film School, I spent 15 years working in visual effects on some of Hollywood's biggest films.
+      <br><br>
+      Today, I bring that experience and technology to small businesses and artists — without the Hollywood price tag.
+      <br><br>
+      Feel free to explore my background here:
+      <a href="https://www.imdb.com/name/nm4307751/" target="_blank">Caleb’s IMDb page</a>
+    </p>
+  </section>
+
+  <!-- CONTACT SECTION -->
+  <section class="contact">
+    <h2>Get In Touch</h2>
+    <p>
+      Ready to elevate your image? Or just curious what’s possible?  
+      I’d love to hear from you.
+      <br><br>
+      Email: <a href="mailto:caleb@digipix.nz">caleb@digipix.nz</a>
+    </p>
+  </section>
+
+  <footer>
+    © 2026 DigiPix | Wellington, New Zealand
+  </footer>
+
+</body>
+</html>
