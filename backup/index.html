@@ -143,58 +143,39 @@ section h2 {
 .modal {
   display:none;
   position:fixed;
-  inset:0;
-  background:rgba(0,0,0,0.92);
   z-index:999;
-  justify-content:center;
-  align-items:center;
-  padding:4rem 2rem;
+  left:0;
+  top:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,0.92);
+  padding:2rem;
+  overflow:auto;
 }
 
 .modal-content {
-  position:relative;
-  max-width:850px;
-  width:80%;
+  max-width:900px;
+  margin:auto;
+  text-align:center;
 }
 
-.modal-main {
+.modal img {
   width:100%;
-  border-radius:18px;
-  display:block;
-  box-shadow:0 25px 70px rgba(0,0,0,0.7);
+  border-radius:14px;
+  margin-bottom:1.5rem;
 }
 
-/* Final portrait thumbnail overlay */
-.modal-overlay-thumb {
-  position:absolute;
-  bottom:-20px;
-  right:-20px;
-  width:160px;
-  border-radius:12px;
-  border:2px solid #fff;
-  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+.modal h3 {
+  margin-bottom:1rem;
 }
 
 .close {
   position:absolute;
-  top:25px;
-  right:35px;
+  top:20px;
+  right:30px;
   font-size:28px;
   color:#fff;
   cursor:pointer;
-}
-
-/* Mobile */
-@media (max-width:768px){
-  .modal-content{
-    width:95%;
-  }
-
-  .modal-overlay-thumb{
-    width:90px;
-    bottom:-10px;
-    right:-10px;
-  }
 }
 
 /* ===== PROCESS SECTION ===== */
@@ -280,7 +261,7 @@ footer {
 <section>
   <h2>Selected Portraits</h2>
   <p style="text-align:center; max-width:650px; margin:0 auto 2.5rem auto; color:#bbb;">
-    Every portrait begins with a personalised Digi-Profile, designed around you.<br>Click on the portraits to see the Digi-Profile that was used to create them.
+    Every portrait begins with a personalised Digi-Profile, designed around you.
   </p>
 
   <div class="gallery-wrapper">
@@ -324,43 +305,52 @@ footer {
 <div id="modal1" class="modal">
   <span class="close" onclick="closeModal('modal1')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile1_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals1_v01.jpg" class="modal-overlay-thumb">
+    <h3>Final Portrait</h3>
+    <img src="images/ClientFinals1_v01.jpg">
+    <h3>Digi-Profile Foundation</h3>
+    <img src="images/DigiProfile1_v01.jpg">
   </div>
 </div>
 
 <div id="modal2" class="modal">
   <span class="close" onclick="closeModal('modal2')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile2_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals2_v01.jpg" class="modal-overlay-thumb">
+    <h3>Final Portrait</h3>
+    <img src="images/ClientFinals2_v01.jpg">
+    <h3>Digi-Profile Foundation</h3>
+    <img src="images/DigiProfile2_v01.jpg">
   </div>
 </div>
 
 <div id="modal3" class="modal">
   <span class="close" onclick="closeModal('modal3')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile3_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals3_v01.jpg" class="modal-overlay-thumb">
+    <h3>Final Portrait</h3>
+    <img src="images/ClientFinals3_v01.jpg">
+    <h3>Digi-Profile Foundation</h3>
+    <img src="images/DigiProfile3_v01.jpg">
   </div>
 </div>
 
 <div id="modal5" class="modal">
   <span class="close" onclick="closeModal('modal5')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile5_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals5_v01.jpg" class="modal-overlay-thumb">
+    <h3>Final Portrait</h3>
+    <img src="images/ClientFinals5_v01.jpg">
+    <h3>Digi-Profile Foundation</h3>
+    <img src="images/DigiProfile5_v01.jpg">
   </div>
 </div>
 
 <div id="modal4" class="modal">
   <span class="close" onclick="closeModal('modal4')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile4_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals4_v02.jpg" class="modal-overlay-thumb">
+    <h3>Final Portrait</h3>
+    <img src="images/ClientFinals4_v02.jpg">
+    <h3>Digi-Profile Foundation</h3>
+    <img src="images/DigiProfile4_v01.jpg">
   </div>
 </div>
-
 
 <!-- ===== PROCESS ===== -->
 
@@ -409,8 +399,9 @@ footer {
 
 <script>
 function openModal(id){
-  document.getElementById(id).style.display="flex";
+  document.getElementById(id).style.display="block";
 }
+
 function closeModal(id){
   document.getElementById(id).style.display="none";
 }
