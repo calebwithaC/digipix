@@ -3,7 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>DigiPix | Professional Portraits Made Accessible</title>
+
+<meta name="description" content="DigiPix creates professional portraits and promotional imagery for small businesses and creatives in Wellington, New Zealand. Studio-quality results without studio pricing.">
+
+<meta property="og:title" content="DigiPix | Professional Portraits Made Accessible">
+<meta property="og:description" content="Professional portraits for small businesses and creatives in Wellington. Studio-quality results without studio pricing.">
+<meta property="og:image" content="https://digipix.co.nz/images/ClientFinals1_v01.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://digipix.co.nz">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="images/Digipix_logo_v05.png">
@@ -16,6 +25,12 @@ body {
   background:#000;
   color:#f5f5f5;
   line-height:1.6;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
 }
 
 header {
@@ -52,7 +67,7 @@ section h2 {
   font-weight:600;
 }
 
-/* ===== HORIZONTAL GALLERY ===== */
+/* ===== GALLERY ===== */
 
 .gallery-wrapper {
   position: relative;
@@ -68,9 +83,7 @@ section h2 {
   padding: 1rem 4rem;
 }
 
-.gallery::-webkit-scrollbar {
-  display: none;
-}
+.gallery::-webkit-scrollbar { display: none; }
 
 .gallery-item {
   flex: 0 0 70%;
@@ -88,6 +101,16 @@ section h2 {
 
 .gallery-item:hover img {
   transform: scale(1.02);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+}
+
+.gallery-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 1.5rem;
+  font-weight: 400;
+  opacity: 0.8;
 }
 
 /* ===== ARROWS ===== */
@@ -115,6 +138,14 @@ section h2 {
 
 .gallery-arrow.left { left: 10px; }
 .gallery-arrow.right { right: 10px; }
+
+.gallery-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 1rem;
+  opacity: 0.85;
+}
 
 /* ===== EDGE FADES ===== */
 
@@ -164,7 +195,6 @@ section h2 {
   box-shadow:0 25px 70px rgba(0,0,0,0.7);
 }
 
-/* Final portrait thumbnail overlay */
 .modal-overlay-thumb {
   position:absolute;
   bottom:-20px;
@@ -184,20 +214,7 @@ section h2 {
   cursor:pointer;
 }
 
-/* Mobile */
-@media (max-width:768px){
-  .modal-content{
-    width:95%;
-  }
-
-  .modal-overlay-thumb{
-    width:90px;
-    bottom:-10px;
-    right:-10px;
-  }
-}
-
-/* ===== PROCESS SECTION ===== */
+/* ===== PROCESS ===== */
 
 .process-image {
   text-align:center;
@@ -250,14 +267,31 @@ footer {
 
 /* ===== MOBILE ===== */
 
-@media (max-width:768px) {
+@media (max-width:768px){
 
   section { padding:2.5rem 1.2rem; }
   header { padding:2.5rem 1rem 1.5rem; }
   header img { width:92%; }
   section h2 { font-size:1.6rem; margin-bottom:1.8rem; }
 
-  .gallery-item { flex: 0 0 85%; }
+  /* MOBILE GALLERY FIX */
+
+  .gallery {
+    padding: 1rem 1rem;
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    flex: 0 0 75vw;
+  }
+
+  .fade-left,
+  .fade-right {
+    width: 40px;
+  }
+
+  .modal-content { width:95%; }
+  .modal-overlay-thumb { width:90px; bottom:-10px; right:-10px; }
 
   .gallery-arrow {
     width:38px;
@@ -268,108 +302,113 @@ footer {
 </style>
 </head>
 
+
+
 <body>
 
 <header>
-  <img src="images/Digipix_logo_v06.jpg" alt="DigiPix Logo">
-  <p>Professional portraits and promotional imagery for small businesses and local creatives.</p>
+  <img src="images/Digipix_logo_v06.jpg" alt="DigiPix logo">
+  <p>Cutting edge, studio-quality portraits for small businesses and creatives — without the studio cost.</p>
 </header>
 
-<!-- ===== GALLERY ===== -->
-
 <section>
-  <h2>Selected Portraits</h2>
-  <p style="text-align:center; max-width:650px; margin:0 auto 2.5rem auto; color:#bbb;">
-    Every portrait begins with a personalised Digi-Profile, designed around you.<br>Click on the portraits to see the Digi-Profile that was used to create them.
-  </p>
-
   <div class="gallery-wrapper">
 
     <button class="gallery-arrow left" onclick="scrollGallery(-1)">&#10094;</button>
 
     <div class="gallery" id="gallery">
 
-      <div class="gallery-item" onclick="openModal('modal1')">
-        <img src="images/ClientFinals1_v01.jpg">
-      </div>
-
-      <div class="gallery-item" onclick="openModal('modal2')">
-        <img src="images/ClientFinals2_v01.jpg">
-      </div>
-
-      <div class="gallery-item" onclick="openModal('modal3')">
-        <img src="images/ClientFinals3_v01.jpg">
-      </div>
-
-      <div class="gallery-item" onclick="openModal('modal5')">
-        <img src="images/ClientFinals5_v01.jpg">
-      </div>
-
-      <div class="gallery-item" onclick="openModal('modal4')">
-        <img src="images/ClientFinals4_v02.jpg">
-      </div>
-
+    <div class="gallery-item" onclick="openModal('modal1')">
+      <img src="images/ClientFinals1_v01.jpg" loading="lazy" alt="Professional portrait example 1">
     </div>
+
+    <div class="gallery-item" onclick="openModal('modal2')">
+      <img src="images/ClientFinals2_v01.jpg" loading="lazy" alt="Professional portrait example 2">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal3')">
+      <img src="images/ClientFinals3_v01.jpg" loading="lazy" alt="Professional portrait example 3">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal5')">
+      <img src="images/ClientFinals5_v01.jpg" loading="lazy" alt="Professional portrait example 5">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal4')">
+      <img src="images/ClientFinals4_v03.jpg" loading="lazy" alt="Professional portrait example 4">
+    </div>
+
+</div>
 
     <button class="gallery-arrow right" onclick="scrollGallery(1)">&#10095;</button>
 
     <div class="fade-left"></div>
     <div class="fade-right"></div>
 
+    <p class="gallery-note">
+      (Tap or click a portrait to view the 'Digi-Profile' ussed to create them.)
+    </p>
+
   </div>
+
+
 </section>
 
-<!-- ===== MODALS ===== -->
+<!-- MODALS (same structure, now scroll-locked + escape-enabled) -->
+
+<!-- Repeat for all modals, adding alt tags -->
+<!-- Example below -->
 
 <div id="modal1" class="modal">
   <span class="close" onclick="closeModal('modal1')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile1_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals1_v01.jpg" class="modal-overlay-thumb">
+    <img src="images/DigiProfile1_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals1_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
   </div>
 </div>
 
 <div id="modal2" class="modal">
   <span class="close" onclick="closeModal('modal2')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile2_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals2_v01.jpg" class="modal-overlay-thumb">
+    <img src="images/DigiProfile2_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals2_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
   </div>
 </div>
 
 <div id="modal3" class="modal">
   <span class="close" onclick="closeModal('modal3')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile3_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals3_v01.jpg" class="modal-overlay-thumb">
+    <img src="images/DigiProfile3_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals3_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
   </div>
 </div>
 
 <div id="modal5" class="modal">
-  <span class="close" onclick="closeModal('modal5')">&times;</span>
+  <span class="close" onclick="closeModal('modal1')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile5_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals5_v01.jpg" class="modal-overlay-thumb">
+    <img src="images/DigiProfile5_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals5_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
   </div>
 </div>
 
 <div id="modal4" class="modal">
-  <span class="close" onclick="closeModal('modal4')">&times;</span>
+  <span class="close" onclick="closeModal('modal1')">&times;</span>
   <div class="modal-content">
-    <img src="images/DigiProfile4_v01.jpg" class="modal-main">
-    <img src="images/ClientFinals4_v02.jpg" class="modal-overlay-thumb">
+    <img src="images/DigiProfile4_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals4_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
   </div>
 </div>
 
 
-<!-- ===== PROCESS ===== -->
+
+<!-- (Repeat same alt pattern for other modals) -->
 
 <section>
   <h2>How It Works</h2>
   <div class="process-image">
     <picture>
       <source srcset="images/ProcessOnBlackVertical_v04.jpeg" media="(max-width:768px)">
-      <img src="images/ProcessOnBlackHorizontal_v04.jpeg">
+      <img src="images/ProcessOnBlackHorizontal_v04.jpeg" alt="DigiPix portrait creation process">
     </picture>
   </div>
   <div class="cta">
@@ -380,21 +419,8 @@ footer {
 <section class="contact">
   <h2>Flexible & Local</h2>
   <p>
-    Based in Wellington, I work directly with small businesses, local theatres and creatives.
-    I can visit for a simple session — or you can send images directly.
-    <br><br>
+    Based in Wellington, New Zealand, I work directly with small businesses, local theatres and creatives.
     Professional images without the cost of a full studio shoot.
-  </p>
-</section>
-
-<section class="contact">
-  <h2>Why Work With Me?</h2>
-  <p>
-    After graduating from the New Zealand Film School, I spent 15 years in visual effects on major productions.
-    <br><br>
-    Today, I bring that experience and technology to small businesses and artists — without the Hollywood price tag.
-    <br><br>
-    <a href="https://www.imdb.com/name/nm4307751/" target="_blank">View IMDb</a>
   </p>
 </section>
 
@@ -410,15 +436,28 @@ footer {
 <script>
 function openModal(id){
   document.getElementById(id).style.display="flex";
+  document.body.style.overflow="hidden";
 }
+
 function closeModal(id){
   document.getElementById(id).style.display="none";
+  document.body.style.overflow="auto";
 }
+
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    document.querySelectorAll(".modal").forEach(modal=>{
+      modal.style.display="none";
+    });
+    document.body.style.overflow="auto";
+  }
+});
 
 window.onclick=function(event){
   document.querySelectorAll(".modal").forEach(modal=>{
     if(event.target===modal){
       modal.style.display="none";
+      document.body.style.overflow="auto";
     }
   });
 }
