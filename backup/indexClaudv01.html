@@ -369,7 +369,6 @@ nav a:hover { color: #38bdf8; }
 
 .pricing-card.featured .pricing-cta:hover {
   background: #0ea5e9;
-  border-color: #0ea5e9;
 }
 
 .pricing-note {
@@ -452,24 +451,17 @@ nav a:hover { color: #38bdf8; }
   font-weight: 300;
   flex-shrink: 0;
   transition: transform 0.3s;
-  display: inline-block;
 }
 
 .faq-answer {
-  max-height: 0;
-  overflow: hidden;
-  transition: max-height 0.35s ease, padding 0.35s ease;
-  padding: 0 1.4rem;
+  display: none;
+  padding: 0 1.4rem 1.2rem;
   color: #aaa;
   font-size: 0.9rem;
   line-height: 1.7;
 }
 
-.faq-item.open .faq-answer {
-  max-height: 300px;
-  padding: 0 1.4rem 1.2rem;
-}
-
+.faq-item.open .faq-answer { display: block; }
 .faq-item.open .faq-icon { transform: rotate(45deg); }
 
 /* ===== CONTACT ===== */
@@ -657,7 +649,7 @@ footer {
     </picture>
   </div>
   <div class="cta">
-    <a href="/cdn-cgi/l/email-protection#a2c1c3cec7c0e2c6cbc5cbd2cbda8cc1cd8cccd8">Elevate Your Image</a>
+    <a href="/cdn-cgi/l/email-protection#d5b6b4b9b0b795b1bcb2bca5bcadfbb6bafbbbaf">Elevate Your Image</a>
   </div>
 </section>
 
@@ -667,41 +659,43 @@ footer {
   <div class="pricing-grid">
 
     <div class="pricing-card">
-      <h3>Essential</h3>
-      <div class="price">$90</div>
+      <h3>Starter</h3>
+      <div class="price">$149</div>
       <ul>
         <li>1 Digi-Profile created</li>
-        <li>1 High quality portrait</li>
-        <li>Choose your own attire and background</li>
-        <li>Fast turn around (24-48hrs)</li>
+        <li>5 final portrait images</li>
+        <li>2 outfit options</li>
+        <li>Digital delivery</li>
       </ul>
-      <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Starter%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Starter%20package%20(%24149).%0A%0AHere%27s%20a%20bit%20about%20what%20I%27m%20looking%20for%3A%0A%0A-%20Name%3A%20%0A-%20What%20I%20do%2F%20my%20business%3A%20%0A-%20How%20I%27d%20like%20to%20be%20portrayed%3A%20%0A-%20Any%20other%20details%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+      <a href="mailto:caleb@digipix.co.nz" class="pricing-cta">Get Started</a>
     </div>
 
     <div class="pricing-card featured">
       <div class="badge">Most Popular</div>
       <h3>Professional</h3>
-      <div class="price">$175</div>
+      <div class="price">$249</div>
       <ul>
         <li>1 Digi-Profile created</li>
-        <li>3 High quality portraits</li>
-        <li>Multiple background/styles</li>
-        <li>Fast turn around (24-48hrs)</li>
+        <li>12 final portrait images</li>
+        <li>4 outfit options</li>
+        <li>2 background styles</li>
+        <li>Digital delivery</li>
       </ul>
-      <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Professional%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Professional%20package%20(%24249).%0A%0AHere%27s%20a%20bit%20about%20what%20I%27m%20looking%20for%3A%0A%0A-%20Name%3A%20%0A-%20What%20I%20do%2F%20my%20business%3A%20%0A-%20Outfit%20ideas%20(up%20to%204)%3A%20%0A-%20Background%20style%20preferences%3A%20%0A-%20How%20I%27d%20like%20to%20be%20portrayed%3A%20%0A-%20Any%20other%20details%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+      <a href="mailto:caleb@digipix.co.nz" class="pricing-cta">Get Started</a>
     </div>
 
     <div class="pricing-card">
-      <h3>Excecutive</h3>
+      <h3>Business</h3>
       <div class="price">$399</div>
       <ul>
-        <li>1 Digi-Profile created</li>
-        <li>6 High quality portraits</li>
-        <li>Multiple background/styles</li>
-        <li>Consultation call and a round of revisions</li>
-        <li>Priority turn around (24-48hrs)</li>
+        <li>Up to 3 people</li>
+        <li>15 final portraits per person</li>
+        <li>Unlimited outfit options</li>
+        <li>Multiple backgrounds</li>
+        <li>Priority turnaround</li>
+        <li>Digital delivery</li>
       </ul>
-      <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Business%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Business%20package%20(%24399).%0A%0AHere%27s%20a%20bit%20about%20what%20I%27m%20looking%20for%3A%0A%0A-%20Company%20name%3A%20%0A-%20Number%20of%20people%3A%20%0A-%20Outfit%20preferences%3A%20%0A-%20Background%20style%20preferences%3A%20%0A-%20How%20we%27d%20like%20to%20be%20portrayed%3A%20%0A-%20Any%20other%20details%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+      <a href="mailto:caleb@digipix.co.nz" class="pricing-cta">Get Started</a>
     </div>
 
   </div>
@@ -715,7 +709,7 @@ footer {
     <div class="about-text">
       <p>Hi, I'm Caleb — the person behind DigiPix.</p>
       <p>After graduating from the New Zealand Film School, I spent 15 years working in visual effects on some of Hollywood's biggest productions. I've spent years obsessing over how people look on screen — lighting, proportion, expression, presence.</p>
-      <p>Today, I bring that experience and cutting-edge technology to small businesses and creatives right here in Wellington — without the Hollywood price tag.</p>
+      <p>Today, I bring that experience and cutting-edge machine learning technology to small businesses and creatives right here in Wellington — without the Hollywood price tag.</p>
       <p>DigiPix was born from a simple idea: everyone deserves a professional image. Whether you're a sole trader, a performer, or a small team, a great portrait can open doors.</p>
       <a href="https://www.imdb.com/name/nm4307751/" target="_blank" class="imdb-link">View my IMDb page →</a>
     </div>
@@ -743,7 +737,7 @@ footer {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Typically 1–2 business days after I receive your photos and preferences. Executive package customers receive priority turnaround.</p>
+        <p>Typically 3–5 business days after I receive your photos and preferences. Business package customers receive priority turnaround.</p>
       </div>
     </div>
 
@@ -763,7 +757,7 @@ footer {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Yes — I use machine learning to enhance and create your portraits from a custom Digi-Profile built around you. The technology is guided by my 15 years of visual effects experience to ensure the results look polished and natural.</p>
+        <p>Yes — DigiPix uses machine learning to create your portraits from a custom Digi-Profile built around you. The technology is guided by my 15 years of visual effects experience to ensure the results look polished and natural.</p>
       </div>
     </div>
 
@@ -773,7 +767,7 @@ footer {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Your photos are used solely to create your Digi-Profile and portraits. They are not shared, sold, or used for any other purpose. The images you send me will be deleted once you have your portraits delivered.</p>
+        <p>Your photos are used solely to create your Digi-Profile and portraits. They are not shared, sold, or used for any other purpose. You can request deletion of your data at any time.</p>
       </div>
     </div>
 
@@ -783,7 +777,7 @@ footer {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>Yes! Get in touch and we'll put together a custom quote.</p>
+        <p>Yes! The Business package covers up to 3 people with consistent styling across the team. For larger teams, get in touch and we'll put together a custom quote.</p>
       </div>
     </div>
 
@@ -800,14 +794,18 @@ footer {
 
 <section class="contact">
   <h2>Get In Touch</h2>
-  <p>Email: <a href="/cdn-cgi/l/email-protection#bcdfddd0d9defcd8d5dbd5ccd5c492dfd392d2c6"><span class="__cf_email__" data-cfemail="75161419101735111c121c051c0d5b161a5b1b0f">[email&#160;protected]</span></a></p>
+  <p>Email: <a href="/cdn-cgi/l/email-protection#3655575a535476525f515f465f4e18555918584c"><span class="__cf_email__" data-cfemail="55363439303715313c323c253c2d7b363a7b3b2f">[email&#160;protected]</span></a></p>
 </section>
 
 <footer>
   © 2026 DigiPix | Wellington, New Zealand
 </footer>
 
-<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js">function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+</script><script>
 function openModal(id){
   document.getElementById(id).style.display="flex";
   document.body.style.overflow="hidden";
@@ -836,25 +834,4 @@ window.onclick=function(event){
   });
 }
 
-function scrollGallery(direction) {
-  const gallery = document.getElementById("gallery");
-  const item = gallery.querySelector(".gallery-item");
-  const itemWidth = item.offsetWidth + 32;
-  gallery.scrollBy({
-    left: direction * itemWidth,
-    behavior: "smooth"
-  });
-}
-</script>
-
-<script>
-function toggleFaq(btn) {
-  const item = btn.parentElement;
-  const wasOpen = item.classList.contains('open');
-  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
-  if (!wasOpen) item.classList.add('open');
-}
-</script>
-
-</body>
-</html>
+function scrol

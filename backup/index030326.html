@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DigiPix | Professional Portraits Made Accessible</title>
+
+<meta name="description" content="DigiPix creates professional portraits and promotional imagery for small businesses and creatives in Wellington, New Zealand. Studio-quality results without studio pricing.">
+
+<meta property="og:title" content="DigiPix | Professional Portraits Made Accessible">
+<meta property="og:description" content="Professional portraits for small businesses and creatives in Wellington. Studio-quality results without studio pricing.">
+<meta property="og:image" content="https://digipix.co.nz/images/ClientFinals1_v01.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://digipix.co.nz">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/Digipix_logo_v05.png">
+
+<style>
+* { margin:0; padding:0; box-sizing:border-box; }
+
+body {
+  font-family:'Inter',sans-serif;
+  background:#000;
+  color:#f5f5f5;
+  line-height:1.6;
+  animation: fadeIn 0.8s ease forwards;
+  opacity: 0;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+header {
+  background:#000;
+  padding:3.5rem 2rem 2rem;
+  text-align:center;
+  border-bottom:1px solid #111;
+}
+
+header img {
+  max-width:440px;
+  width:90%;
+  height:auto;
+  margin-bottom:1.2rem;
+}
+
+header p {
+  color:#bbb;
+  font-size:1.1rem;
+  max-width:600px;
+  margin:0 auto;
+}
+
+section {
+  padding:4rem 2rem;
+  max-width:1100px;
+  margin:auto;
+}
+
+section h2 {
+  text-align:center;
+  margin-bottom:2.5rem;
+  font-size:2rem;
+  font-weight:600;
+}
+
+/* ===== GALLERY ===== */
+
+.gallery-wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.gallery {
+  display: flex;
+  gap: 2rem;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 1rem 4rem;
+}
+
+.gallery::-webkit-scrollbar { display: none; }
+
+.gallery-item {
+  flex: 0 0 70%;
+  scroll-snap-align: center;
+  cursor: pointer;
+  transition: 0.4s ease;
+}
+
+.gallery-item img {
+  width: 100%;
+  border-radius: 16px;
+  display: block;
+  transition: 0.4s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.02);
+  box-shadow: 0 15px 50px rgba(0,0,0,0.6);
+}
+
+.gallery-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 1.5rem;
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+/* ===== ARROWS ===== */
+
+.gallery-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0,0,0,0.6);
+  border: 1px solid #222;
+  color: #fff;
+  font-size: 2rem;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  cursor: pointer;
+  z-index: 10;
+  transition: 0.3s ease;
+}
+
+.gallery-arrow:hover {
+  background: rgba(0,0,0,0.9);
+  border-color: #444;
+}
+
+.gallery-arrow.left { left: 10px; }
+.gallery-arrow.right { right: 10px; }
+
+.gallery-note {
+  text-align: center;
+  font-size: 0.8rem;
+  color: #777;
+  margin-top: 1rem;
+  opacity: 0.85;
+}
+
+/* ===== EDGE FADES ===== */
+
+.fade-left,
+.fade-right {
+  position: absolute;
+  top: 0;
+  width: 120px;
+  height: 100%;
+  pointer-events: none;
+  z-index: 5;
+}
+
+.fade-left {
+  left: 0;
+  background: linear-gradient(to right, #000 30%, transparent);
+}
+
+.fade-right {
+  right: 0;
+  background: linear-gradient(to left, #000 30%, transparent);
+}
+
+/* ===== MODAL ===== */
+
+.modal {
+  display:none;
+  position:fixed;
+  inset:0;
+  background:rgba(0,0,0,0.92);
+  z-index:999;
+  justify-content:center;
+  align-items:center;
+  padding:4rem 2rem;
+}
+
+.modal-content {
+  position:relative;
+  max-width:850px;
+  width:80%;
+}
+
+.modal-main {
+  width:100%;
+  border-radius:18px;
+  display:block;
+  box-shadow:0 25px 70px rgba(0,0,0,0.7);
+}
+
+.modal-overlay-thumb {
+  position:absolute;
+  bottom:-20px;
+  right:-20px;
+  width:160px;
+  border-radius:12px;
+  border:2px solid #fff;
+  box-shadow:0 10px 30px rgba(0,0,0,0.6);
+}
+
+.close {
+  position:absolute;
+  top:25px;
+  right:35px;
+  font-size:28px;
+  color:#fff;
+  cursor:pointer;
+}
+
+/* ===== PROCESS ===== */
+
+.process-image {
+  text-align:center;
+  margin-bottom:3rem;
+}
+
+.process-image img {
+  width:100%;
+  max-width:1000px;
+  border-radius:12px;
+}
+
+.cta { text-align:center; margin-top:2.5rem; }
+
+.cta a {
+  background:#38bdf8;
+  padding:0.9rem 2rem;
+  border-radius:40px;
+  text-decoration:none;
+  color:black;
+  font-weight:600;
+}
+
+.cta a:hover { background:#0ea5e9; }
+
+/* ===== CONTACT ===== */
+
+.contact { text-align:center; }
+
+.contact p {
+  color:#ccc;
+  max-width:700px;
+  margin:auto;
+}
+
+.contact a {
+  color:#38bdf8;
+  font-weight:600;
+  text-decoration:none;
+}
+
+footer {
+  background:#000;
+  color:#777;
+  text-align:center;
+  padding:2rem;
+  font-size:0.9rem;
+  border-top:1px solid #111;
+}
+
+/* ===== MOBILE ===== */
+
+@media (max-width:768px){
+
+  section { padding:2.5rem 1.2rem; }
+  header { padding:2.5rem 1rem 1.5rem; }
+  header img { width:92%; }
+  section h2 { font-size:1.6rem; margin-bottom:1.8rem; }
+
+  /* MOBILE GALLERY FIX */
+
+  .gallery {
+    padding: 1rem 1rem;
+    gap: 1rem;
+  }
+
+  .gallery-item {
+    flex: 0 0 75vw;
+  }
+
+  .fade-left,
+  .fade-right {
+    width: 40px;
+  }
+
+  .modal-content { width:95%; }
+  .modal-overlay-thumb { width:90px; bottom:-10px; right:-10px; }
+
+  .gallery-arrow {
+    width:38px;
+    height:38px;
+    font-size:1.5rem;
+  }
+}
+</style>
+</head>
+
+
+
+<body>
+
+<header>
+  <img src="images/Digipix_logo_v06.jpg" alt="DigiPix logo">
+  <p>Cutting edge, studio-quality portraits for small businesses and creatives — without the studio cost.</p>
+</header>
+
+<section>
+  <div class="gallery-wrapper">
+
+    <button class="gallery-arrow left" onclick="scrollGallery(-1)">&#10094;</button>
+
+    <div class="gallery" id="gallery">
+
+    <div class="gallery-item" onclick="openModal('modal1')">
+      <img src="images/ClientFinals1_v01.jpg" loading="lazy" alt="Professional portrait example 1">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal2')">
+      <img src="images/ClientFinals2_v01.jpg" loading="lazy" alt="Professional portrait example 2">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal3')">
+      <img src="images/ClientFinals3_v01.jpg" loading="lazy" alt="Professional portrait example 3">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal5')">
+      <img src="images/ClientFinals5_v01.jpg" loading="lazy" alt="Professional portrait example 5">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal4')">
+      <img src="images/ClientFinals4_v03.jpg" loading="lazy" alt="Professional portrait example 4">
+    </div>
+
+</div>
+
+    <button class="gallery-arrow right" onclick="scrollGallery(1)">&#10095;</button>
+
+    <div class="fade-left"></div>
+    <div class="fade-right"></div>
+
+    <p class="gallery-note">
+      (Tap or click a portrait to view the 'Digi-Profile' used to create them.)
+    </p>
+
+  </div>
+
+
+</section>
+
+<!-- MODALS (same structure, now scroll-locked + escape-enabled) -->
+
+<!-- Repeat for all modals, adding alt tags -->
+<!-- Example below -->
+
+<div id="modal1" class="modal">
+  <span class="close" onclick="closeModal('modal1')">&times;</span>
+  <div class="modal-content">
+    <img src="images/DigiProfile1_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals1_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <span class="close" onclick="closeModal('modal2')">&times;</span>
+  <div class="modal-content">
+    <img src="images/DigiProfile2_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals2_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+<div id="modal3" class="modal">
+  <span class="close" onclick="closeModal('modal3')">&times;</span>
+  <div class="modal-content">
+    <img src="images/DigiProfile3_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals3_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+<div id="modal5" class="modal">
+  <span class="close" onclick="closeModal('modal1')">&times;</span>
+  <div class="modal-content">
+    <img src="images/DigiProfile5_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals5_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+<div id="modal4" class="modal">
+  <span class="close" onclick="closeModal('modal1')">&times;</span>
+  <div class="modal-content">
+    <img src="images/DigiProfile4_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientFinals4_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+
+
+<!-- (Repeat same alt pattern for other modals) -->
+
+<section>
+  <h2>How It Works</h2>
+  <div class="process-image">
+    <picture>
+      <source srcset="images/ProcessOnBlackVertical_v04.jpeg" media="(max-width:768px)">
+      <img src="images/ProcessOnBlackHorizontal_v04.jpeg" alt="DigiPix portrait creation process">
+    </picture>
+  </div>
+  <div class="cta">
+    <a href="mailto:caleb@digipix.co.nz">Elevate Your Image</a>
+  </div>
+</section>
+
+<section class="contact">
+  <h2>Flexible & Local</h2>
+  <p>
+    Based in Wellington, New Zealand, I work directly with small businesses, local theatres and creatives.
+    Professional images without the cost of a full studio shoot.
+  </p>
+</section>
+
+<section class="contact">
+  <h2>Get In Touch</h2>
+  <p>Email: <a href="mailto:caleb@digipix.co.nz">caleb@digipix.co.nz</a></p>
+</section>
+
+<footer>
+  © 2026 DigiPix | Wellington, New Zealand
+</footer>
+
+<script>
+function openModal(id){
+  document.getElementById(id).style.display="flex";
+  document.body.style.overflow="hidden";
+}
+
+function closeModal(id){
+  document.getElementById(id).style.display="none";
+  document.body.style.overflow="auto";
+}
+
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    document.querySelectorAll(".modal").forEach(modal=>{
+      modal.style.display="none";
+    });
+    document.body.style.overflow="auto";
+  }
+});
+
+window.onclick=function(event){
+  document.querySelectorAll(".modal").forEach(modal=>{
+    if(event.target===modal){
+      modal.style.display="none";
+      document.body.style.overflow="auto";
+    }
+  });
+}
+
+function scrollGallery(direction) {
+  const gallery = document.getElementById("gallery");
+  const item = gallery.querySelector(".gallery-item");
+  const itemWidth = item.offsetWidth + 32;
+  gallery.scrollBy({
+    left: direction * itemWidth,
+    behavior: "smooth"
+  });
+}
+</script>
+
+</body>
+</html>
