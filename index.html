@@ -506,6 +506,26 @@ footer {
   header img { width:92%; }
   section h2 { font-size:1.6rem; margin-bottom:1.8rem; }
 
+  /* MOBILE PRICING CAROUSEL */
+
+.pricing-grid {
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  scroll-snap-type: x mandatory;
+  scroll-behavior: smooth;
+  padding: 0 1rem;
+}
+
+.pricing-grid::-webkit-scrollbar {
+  display: none;
+}
+
+.pricing-card {
+  flex: 0 0 85%;
+  max-width: 85%;
+  scroll-snap-align: center;
+}
+
   /* MOBILE GALLERY FIX */
 
   .gallery {
@@ -714,10 +734,10 @@ footer {
   <div class="about-inner">
     <div class="about-text">
       <p>Hi, I'm Caleb — the person behind DigiPix.</p>
-      <p>After graduating from the New Zealand Film School, I spent 15 years working in visual effects on some of Hollywood's biggest productions. I've spent years obsessing over how people look on screen — lighting, proportion, expression, presence.</p>
+      <p>After graduating from the New Zealand Film School, I spent 15 years working in visual effects on some of Hollywood's biggest productions. I've spent years blending art with technology to create stunning imagery. Feel free to check out my history with Hollywood here.</p>
+      <a href="https://www.imdb.com/name/nm4307751/" target="_blank" class="imdb-link">View my IMDb page →</a>
       <p>Today, I bring that experience and cutting-edge technology to small businesses and creatives right here in Wellington — without the Hollywood price tag.</p>
       <p>DigiPix was born from a simple idea: everyone deserves a professional image. Whether you're a sole trader, a performer, or a small team, a great portrait can open doors.</p>
-      <a href="https://www.imdb.com/name/nm4307751/" target="_blank" class="imdb-link">View my IMDb page →</a>
     </div>
   </div>
 </section>
@@ -733,7 +753,7 @@ footer {
         <span class="faq-icon">+</span>
       </button>
       <div class="faq-answer">
-        <p>No! That's the whole point. You just need a few casual photos taken on your phone — one full body shot and a couple of your face from different angles. Nothing fancy required.</p>
+        <p>No! That's the whole point. You just need a few casual photos taken on your phone — one full body shot and a couple of your face from different angles. Nothing fancy required. Just send me a message and I will step you through what to do.</p>
       </div>
     </div>
 
