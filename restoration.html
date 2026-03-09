@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DigiPix | Historical Photo Restoration</title>
+
+<meta name="description" content="Restore and enhance historical photographs using advanced AI tools.">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+<link rel="icon" type="image/png" href="images/Digipix_logo_v05.png">
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+<body>
+
+<header>
+<a href="index.html">
+<img src="images/Digipix_logo_v06.jpg" alt="DigiPix logo">
+</a>
+<p>Bringing the best out of your images.</p>
+</header>
+
+<nav>
+<a href="#examples">Examples</a>
+<a href="#how">How It Works</a>
+<a href="#pricing">Pricing</a>
+<a href="#contact">Contact</a>
+</nav>
+
+<section id="examples">
+
+<h2>Restoration Examples</h2>
+
+<div class="gallery-wrapper">
+
+<button class="gallery-arrow left" onclick="scrollGallery(-1)">&#10094;</button>
+
+<div class="gallery" id="gallery">
+
+<div class="gallery-item" onclick="openModal('modal1')">
+<img src="images/restoration_example1.jpg" loading="lazy" alt="Historical photo restoration example 1">
+</div>
+
+<div class="gallery-item" onclick="openModal('modal2')">
+<img src="images/restoration_example2.jpg" loading="lazy" alt="Historical photo restoration example 2">
+</div>
+
+<div class="gallery-item" onclick="openModal('modal3')">
+<img src="images/restoration_example3.jpg" loading="lazy" alt="Historical photo restoration example 3">
+</div>
+
+</div>
+
+<button class="gallery-arrow right" onclick="scrollGallery(1)">&#10095;</button>
+
+<div class="fade-left"></div>
+<div class="fade-right"></div>
+
+<p class="gallery-note">
+Tap or click to view larger
+</p>
+
+</div>
+
+</section>
+
+
+<!-- MODALS -->
+
+<div id="modal1" class="modal">
+<span class="close" onclick="closeModal('modal1')">&times;</span>
+<img class="modal-image" src="images/restoration_example1.jpg" alt="Restoration example">
+</div>
+
+<div id="modal2" class="modal">
+<span class="close" onclick="closeModal('modal2')">&times;</span>
+<img class="modal-image" src="images/restoration_example2.jpg" alt="Restoration example">
+</div>
+
+<div id="modal3" class="modal">
+<span class="close" onclick="closeModal('modal3')">&times;</span>
+<img class="modal-image" src="images/restoration_example3.jpg" alt="Restoration example">
+</div>
+
+
+<section id="how">
+
+<h2>How It Works</h2>
+
+<p style="max-width:700px;margin:auto;text-align:center;color:#ccc;">
+Send a scan or photo of your historical image and DigiPix will use advanced restoration tools to recover lost detail, repair damage, and upscale the image for modern displays or printing.
+</p>
+
+<div class="cta">
+<a href="mailto:caleb@digipix.co.nz?subject=Photo Restoration Enquiry">Restore Your Photo</a>
+</div>
+
+</section>
+
+
+<section id="pricing">
+
+<h2>Pricing</h2>
+
+<div style="max-width:600px;margin:auto;text-align:center;color:#ccc;">
+<p>Every historical photo is different. Pricing depends on the level of restoration required.</p>
+<p>Most restorations fall between <strong>$40 – $120 per image.</strong></p>
+</div>
+
+<div class="cta">
+<a href="mailto:caleb@digipix.co.nz?subject=Photo Restoration Quote">Request a Quote</a>
+</div>
+
+</section>
+
+
+<section id="contact" class="contact">
+
+<h2>Get In Touch</h2>
+
+<p>Email: <a href="mailto:caleb@digipix.co.nz">caleb@digipix.co.nz</a></p>
+
+</section>
+
+<footer>
+© 2026 DigiPix | Wellington, New Zealand
+</footer>
+
+
+<script>
+
+function openModal(id){
+document.getElementById(id).style.display="flex";
+document.body.style.overflow="hidden";
+}
+
+function closeModal(id){
+document.getElementById(id).style.display="none";
+document.body.style.overflow="auto";
+}
+
+document.addEventListener("keydown", function(e){
+if(e.key === "Escape"){
+document.querySelectorAll(".modal").forEach(modal=>{
+modal.style.display="none";
+});
+document.body.style.overflow="auto";
+}
+});
+
+window.onclick=function(event){
+document.querySelectorAll(".modal").forEach(modal=>{
+if(event.target===modal){
+modal.style.display="none";
+document.body.style.overflow="auto";
+}
+});
+}
+
+function scrollGallery(direction) {
+const gallery = document.getElementById("gallery");
+const item = gallery.querySelector(".gallery-item");
+const itemWidth = item.offsetWidth + 32;
+
+gallery.scrollBy({
+left: direction * itemWidth,
+behavior: "smooth"
+});
+}
+
+</script>
+
+</body>
+</html>

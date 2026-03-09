@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>DigiPix | Professional Portraits Made Accessible</title>
+
+<meta name="description" content="DigiPix creates promotional imagery for small businesses and creatives in Wellington, New Zealand. Studio-quality results without studio pricing.">
+
+<meta property="og:title" content="DigiPix | Professional Portraits Made Accessible">
+<meta property="og:description" content="Professional portraits for small businesses and creatives in Wellington. High quality results without studio pricing.">
+<meta property="og:image" content="https://digipix.co.nz/images/ClientProgression1_v01.jpg">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://digipix.co.nz">
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+<link rel="icon" type="image/png" href="images/Digipix_logo_v05.png">
+
+<link rel="stylesheet" href="styles.css">
+
+</head>
+
+
+
+<body>
+
+<header>
+  <a href="index.html">
+    <img src="images/Digipix_logo_v06.jpg" alt="DigiPix logo">
+  </a>
+  <p>Bringing the best out of your images.</p>
+</header>
+
+<nav>
+  <a href="index.html">Services</a>
+  <a href="#portfolio">Portfolio</a>
+  <a href="#how-it-works">How It Works</a>
+  <a href="#pricing">Pricing</a>
+  <a href="#about">About</a>
+  <a href="#faq">FAQ</a>
+  <a href="#contact">Contact</a>
+</nav>
+
+<section id="portfolio">
+  <div class="gallery-wrapper">
+
+    <button class="gallery-arrow left" onclick="scrollGallery(-1)">&#10094;</button>
+
+    <div class="gallery" id="gallery">
+
+    <div class="gallery-item" onclick="openModal('modal1')">
+      <img src="images/ClientProgression1_v01.jpg" loading="lazy" alt="Professional portrait example 1">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal2')">
+      <img src="images/ClientProgression2_v01.jpg" loading="lazy" alt="Professional portrait example 2">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal3')">
+      <img src="images/ClientProgression3_v01.jpg" loading="lazy" alt="Professional portrait example 3">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal5')">
+      <img src="images/ClientProgression5_v01.jpg" loading="lazy" alt="Professional portrait example 5">
+    </div>
+
+    <div class="gallery-item" onclick="openModal('modal4')">
+      <img src="images/ClientProgression4_v01.jpg" loading="lazy" alt="Professional portrait example 4">
+    </div>
+
+</div>
+
+    <button class="gallery-arrow right" onclick="scrollGallery(1)">&#10095;</button>
+
+    <div class="fade-left"></div>
+    <div class="fade-right"></div>
+
+    <p class="gallery-note">
+      (Tap or click to see the final portraits created)
+    </p>
+
+  </div>
+
+
+</section>
+
+<!-- MODALS (same structure, now scroll-locked + escape-enabled) -->
+
+<!-- Repeat for all modals, adding alt tags -->
+<!-- Example below -->
+
+
+<div id="modal1" class="modal">
+  <span class="close" onclick="closeModal('modal1')">&times;</span>
+  <div class="modal-content">
+    <img src="images/ClientFinals1_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientProgression1_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+<div id="modal2" class="modal">
+  <span class="close" onclick="closeModal('modal2')">&times;</span>
+  <div class="modal-content">
+    <img src="images/ClientFinals2_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientProgression2_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+<div id="modal3" class="modal">
+  <span class="close" onclick="closeModal('modal3')">&times;</span>
+  <div class="modal-content">
+    <img src="images/ClientFinals3_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientProgression3_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+
+<div id="modal5" class="modal">
+  <span class="close" onclick="closeModal('modal5')">&times;</span>
+  <div class="modal-content">
+    <img src="images/ClientFinals5_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientProgression5_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+
+<div id="modal4" class="modal">
+  <span class="close" onclick="closeModal('modal4')">&times;</span>
+  <div class="modal-content">
+    <img src="images/ClientFinals4_v03.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
+    <img src="images/ClientProgression4_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+  </div>
+</div>
+
+
+
+<!-- (Repeat same alt pattern for other modals) -->
+
+<section id="how-it-works">
+  <h2>How It Works</h2>
+  <div class="process-image">
+    <picture>
+      <source srcset="images/ProcessOnBlackVertical_v04.jpeg" media="(max-width:768px)">
+      <img src="images/ProcessOnBlackHorizontal_v04.jpeg" alt="DigiPix portrait creation process">
+    </picture>
+  </div>
+  <div class="cta">
+    <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry&body=Hi%20Caleb%2C%0A%0AI%27d%20like%20to%20elevate%20my%20image%20with%20DigiPix.%0A%0ALooking%20forward%20to%20hearing%20from%20you!">Elevate Your Image</a>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <h2>Pricing</h2>
+
+  <div class="pricing-wrapper">
+    <div class="pricing-grid">
+
+    <div class="pricing-card">
+      <h3>Essential</h3>
+      <div class="price">$90</div>
+      <ul>
+        <li>1 High quality portrait</li>
+        <li>1 Digi-Profile created</li>
+        <li>Choose your own attire and background</li>
+        <li>Fast turn around (24-48hrs)</li>
+      </ul>
+      <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Essential%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Essential%20package.%0A%0AName%3A%20%0ABusiness%3A%20%0AHow%20I%27d%20like%20to%20be%20portrayed%3A%20%0ADetails%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+    </div>
+
+    <div class="pricing-card featured">
+      <div class="badge">Most Popular</div>
+      <h3>Professional</h3>
+      <div class="price">$175</div>
+      <ul>
+        <li>3 High quality portraits</li>       
+        <li>1 Digi-Profile created</li>
+        <li>Multiple background/styles</li>
+        <li>Fast turn around (24-48hrs)</li>
+      </ul>
+      <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Professional%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Professional%20package.%0A%0AName%3A%20%0ABusiness%3A%20%0AOutfit%20ideas%3A%20%0ABackground%20style%3A%20%0AHow%20I%27d%20like%20to%20be%20portrayed%3A%20%0ADetails%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+    </div>
+
+    <div class="pricing-card">
+      <h3>Executive</h3>
+      <div class="price">$220</div>
+      <ul>
+        <li>6 High quality portraits</li>
+        <li>1 Digi-Profile created</li>
+        <li>Multiple background/styles</li>
+        <li>Consultation call and a round of revisions</li>
+        <li>Priority turn around</li>
+      </ul>
+      <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Executive%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Executive%20package.%0A%0ACompany%3A%20%0ANumber%20of%20people%3A%20%0AOutfit%20preferences%3A%20%0ABackground%20style%3A%20%0AHow%20I%27d%20like%20to%20be%20portrayed%3A%20%0ADetails%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+    </div>
+
+      </div> <!-- end pricing-grid -->
+
+      <div class="pricing-fade-left"></div>
+      <div class="pricing-fade-right"></div>
+
+    </div> <!-- end pricing-wrapper -->
+
+  <p class="pricing-note">
+    Not sure which package suits you? 
+    <a href="mailto:caleb@digipix.co.nz">Get in touch</a> 
+    and we'll figure it out together.
+  </p>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about">
+  <h2>About Me</h2>
+  <div class="about-inner">
+    <div class="about-text">
+      <p>Hi, I'm Caleb — the person behind DigiPix.</p>
+      <p>After graduating from the New Zealand Film School, I spent 15 years working in visual effects on some of Hollywood's biggest productions. Feel free to check out my history with Hollywood here.</p>
+      <a href="https://www.imdb.com/name/nm4307751/" target="_blank" class="imdb-link">View my IMDb page →</a>
+      </p>
+      <p>I created Digipix to bring that experience and cutting-edge technology to you — without the Hollywood price tag.</p>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Do I need to have professional photos taken first?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>No! That's the whole point. You just need a few casual photos taken on your phone — one full body shot and a couple of your face from different angles. Nothing fancy required. Just send me a message and I will step you through what to do.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How long does it take to receive my portraits?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Typically 1–2 business days after I receive your photos and preferences. Executive package customers receive priority turnaround.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can I choose what I'm wearing in the portraits?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Absolutely. You can specify outfits, styles, and how you'd like to be portrayed — professional, casual, creative. The more detail you give me, the better the results.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Are these AI-generated photos?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes — I use machine learning tools to enhance and create your portraits from a custom Digi-Profile built around you. The technology is guided by my 15 years of visual effects experience to ensure the results look polished and natural.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What do you do with my photos?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Your photos are used solely to create your Digi-Profile and portraits. They are not shared, sold, or used for any other purpose. The images you send me will be deleted once you have your portraits delivered.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can you photograph my whole team?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes! Get in touch and we'll put together a custom quote.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Flexible & Local</h2>
+  <p>
+    Based in Wellington, New Zealand, I work directly with small businesses, local theatres and creatives.
+    Professional images without the cost of a full studio shoot.
+  </p>
+</section>
+
+<section class="contact">
+  <h2>Get In Touch</h2>
+  <p>Email: <a href="mailto:caleb@digipix.co.nz">caleb@digipix.co.nz</a></p>
+</section>
+
+<footer>
+  © 2026 DigiPix | Wellington, New Zealand
+</footer>
+
+<script>
+function openModal(id){
+  document.getElementById(id).style.display="flex";
+  document.body.style.overflow="hidden";
+}
+
+function closeModal(id){
+  document.getElementById(id).style.display="none";
+  document.body.style.overflow="auto";
+}
+
+document.addEventListener("keydown", function(e){
+  if(e.key === "Escape"){
+    document.querySelectorAll(".modal").forEach(modal=>{
+      modal.style.display="none";
+    });
+    document.body.style.overflow="auto";
+  }
+});
+
+window.onclick=function(event){
+  document.querySelectorAll(".modal").forEach(modal=>{
+    if(event.target===modal){
+      modal.style.display="none";
+      document.body.style.overflow="auto";
+    }
+  });
+}
+
+function scrollGallery(direction) {
+  const gallery = document.getElementById("gallery");
+  const item = gallery.querySelector(".gallery-item");
+  const itemWidth = item.offsetWidth + 32;
+  gallery.scrollBy({
+    left: direction * itemWidth,
+    behavior: "smooth"
+  });
+}
+</script>
+
+<script>
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const wasOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(el => el.classList.remove('open'));
+  if (!wasOpen) item.classList.add('open');
+}
+</script>
+
+</body>
+</html>
