@@ -14,6 +14,62 @@
 
 <link rel="stylesheet" href="styles.css">
 
+<style>
+  /* Restoration modal: single image, constrained to viewport */
+  .modal-image {
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    border-radius: 14px;
+    display: block;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+    object-fit: contain;
+  }
+
+  /* Swipe hint on mobile */
+  .modal-swipe-hint {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Modal nav arrows */
+  .modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    color: #fff;
+    font-size: 1.6rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10;
+    user-select: none;
+  }
+
+  .modal-nav:hover { background: rgba(0,0,0,0.85); }
+  .modal-nav.prev { left: 12px; }
+  .modal-nav.next { right: 12px; }
+
+  @media (max-width: 768px) {
+    .modal-nav { display: none; }
+  }
+</style>
+
 </head>
 
 <body>
@@ -54,6 +110,10 @@
 <img src="images/restoration_example3.jpg" loading="lazy" alt="Historical photo restoration example 3">
 </div>
 
+<div class="gallery-item" onclick="openModal('modal4')">
+<img src="images/restoration_example4.jpg" loading="lazy" alt="Historical photo restoration example 4">
+</div>
+
 </div>
 
 <button class="gallery-arrow right" onclick="scrollGallery(1)">&#10095;</button>
@@ -73,18 +133,27 @@ Tap or click to view larger
 <!-- MODALS -->
 
 <div id="modal1" class="modal">
-<span class="close" onclick="closeModal('modal1')">&times;</span>
-<img class="modal-image" src="images/restoration_example1.jpg" alt="Restoration example">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <img class="modal-image" src="images/restoration_example1.jpg" alt="Restoration example 1">
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
 
 <div id="modal2" class="modal">
-<span class="close" onclick="closeModal('modal2')">&times;</span>
-<img class="modal-image" src="images/restoration_example2.jpg" alt="Restoration example">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <img class="modal-image" src="images/restoration_example2.jpg" alt="Restoration example 2">
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
 
 <div id="modal3" class="modal">
-<span class="close" onclick="closeModal('modal3')">&times;</span>
-<img class="modal-image" src="images/restoration_example3.jpg" alt="Restoration example">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <img class="modal-image" src="images/restoration_example3.jpg" alt="Restoration example 3">
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
 
 
@@ -116,7 +185,6 @@ Send a scan or photo of your historical image and DigiPix will use advanced rest
 </section>
 
 
-
 <section id="contact" class="contact">
 
 <h2>Get In Touch</h2>
@@ -132,43 +200,75 @@ Send a scan or photo of your historical image and DigiPix will use advanced rest
 
 <script>
 
-function openModal(id){
-document.getElementById(id).style.display="flex";
-document.body.style.overflow="hidden";
+const modalOrder = ['modal1', 'modal2', 'modal3'];
+let currentModalIndex = 0;
+let touchStartX = 0;
+let touchStartY = 0;
+
+function openModal(id) {
+  currentModalIndex = modalOrder.indexOf(id);
+  document.getElementById(id).style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
-function closeModal(id){
-document.getElementById(id).style.display="none";
-document.body.style.overflow="auto";
+function closeAllModals() {
+  modalOrder.forEach(id => {
+    document.getElementById(id).style.display = "none";
+  });
+  document.body.style.overflow = "auto";
 }
 
-document.addEventListener("keydown", function(e){
-if(e.key === "Escape"){
-document.querySelectorAll(".modal").forEach(modal=>{
-modal.style.display="none";
-});
-document.body.style.overflow="auto";
+function navigateModal(direction) {
+  const currentId = modalOrder[currentModalIndex];
+  document.getElementById(currentId).style.display = "none";
+  currentModalIndex = (currentModalIndex + direction + modalOrder.length) % modalOrder.length;
+  document.getElementById(modalOrder[currentModalIndex]).style.display = "flex";
 }
+
+// Keyboard navigation
+document.addEventListener("keydown", function(e) {
+  const anyOpen = modalOrder.some(id => document.getElementById(id).style.display === "flex");
+  if (!anyOpen) return;
+  if (e.key === "Escape") closeAllModals();
+  if (e.key === "ArrowRight") navigateModal(1);
+  if (e.key === "ArrowLeft") navigateModal(-1);
 });
 
-window.onclick=function(event){
-document.querySelectorAll(".modal").forEach(modal=>{
-if(event.target===modal){
-modal.style.display="none";
-document.body.style.overflow="auto";
-}
-});
-}
+// Click backdrop to close
+window.onclick = function(event) {
+  modalOrder.forEach(id => {
+    const modal = document.getElementById(id);
+    if (event.target === modal) closeAllModals();
+  });
+};
+
+// Touch swipe
+document.addEventListener("touchstart", function(e) {
+  const anyOpen = modalOrder.some(id => document.getElementById(id).style.display === "flex");
+  if (!anyOpen) return;
+  touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+}, { passive: true });
+
+document.addEventListener("touchend", function(e) {
+  const anyOpen = modalOrder.some(id => document.getElementById(id).style.display === "flex");
+  if (!anyOpen) return;
+  const dx = e.changedTouches[0].screenX - touchStartX;
+  const dy = e.changedTouches[0].screenY - touchStartY;
+  // Only trigger if horizontal swipe is dominant and long enough
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+    navigateModal(dx < 0 ? 1 : -1);
+  }
+}, { passive: true });
 
 function scrollGallery(direction) {
-const gallery = document.getElementById("gallery");
-const item = gallery.querySelector(".gallery-item");
-const itemWidth = item.offsetWidth + 32;
-
-gallery.scrollBy({
-left: direction * itemWidth,
-behavior: "smooth"
-});
+  const gallery = document.getElementById("gallery");
+  const item = gallery.querySelector(".gallery-item");
+  const itemWidth = item.offsetWidth + 32;
+  gallery.scrollBy({
+    left: direction * itemWidth,
+    behavior: "smooth"
+  });
 }
 
 </script>

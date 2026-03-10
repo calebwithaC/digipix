@@ -16,12 +16,55 @@
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 <link rel="icon" type="image/png" href="images/Digipix_logo_v05.png">
-
 <link rel="stylesheet" href="styles.css">
 
+<style>
+  /* Modal nav arrows */
+  .modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    color: #fff;
+    font-size: 1.6rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10;
+    user-select: none;
+  }
+
+  .modal-nav:hover { background: rgba(0,0,0,0.85); }
+  .modal-nav.prev { left: 12px; }
+  .modal-nav.next { right: 12px; }
+
+  /* Swipe hint — visible on mobile, hidden on desktop */
+  .modal-swipe-hint {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    pointer-events: none;
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    .modal-nav { display: none; }
+    .modal-swipe-hint { display: block; }
+  }
+</style>
+
 </head>
-
-
 
 <body>
 
@@ -49,27 +92,27 @@
 
     <div class="gallery" id="gallery">
 
-    <div class="gallery-item" onclick="openModal('modal1')">
-      <img src="images/ClientProgression1_v01.jpg" loading="lazy" alt="Professional portrait example 1">
-    </div>
+      <div class="gallery-item" onclick="openModal('modal1')">
+        <img src="images/ClientProgression1_v01.jpg" loading="lazy" alt="Professional portrait example 1">
+      </div>
 
-    <div class="gallery-item" onclick="openModal('modal2')">
-      <img src="images/ClientProgression2_v01.jpg" loading="lazy" alt="Professional portrait example 2">
-    </div>
+      <div class="gallery-item" onclick="openModal('modal2')">
+        <img src="images/ClientProgression2_v01.jpg" loading="lazy" alt="Professional portrait example 2">
+      </div>
 
-    <div class="gallery-item" onclick="openModal('modal3')">
-      <img src="images/ClientProgression3_v01.jpg" loading="lazy" alt="Professional portrait example 3">
-    </div>
+      <div class="gallery-item" onclick="openModal('modal3')">
+        <img src="images/ClientProgression3_v01.jpg" loading="lazy" alt="Professional portrait example 3">
+      </div>
 
-    <div class="gallery-item" onclick="openModal('modal5')">
-      <img src="images/ClientProgression5_v01.jpg" loading="lazy" alt="Professional portrait example 5">
-    </div>
+      <div class="gallery-item" onclick="openModal('modal5')">
+        <img src="images/ClientProgression5_v01.jpg" loading="lazy" alt="Professional portrait example 5">
+      </div>
 
-    <div class="gallery-item" onclick="openModal('modal4')">
-      <img src="images/ClientProgression4_v01.jpg" loading="lazy" alt="Professional portrait example 4">
-    </div>
+      <div class="gallery-item" onclick="openModal('modal4')">
+        <img src="images/ClientProgression4_v01.jpg" loading="lazy" alt="Professional portrait example 4">
+      </div>
 
-</div>
+    </div>
 
     <button class="gallery-arrow right" onclick="scrollGallery(1)">&#10095;</button>
 
@@ -81,61 +124,66 @@
     </p>
 
   </div>
-
-
 </section>
 
-<!-- MODALS (same structure, now scroll-locked + escape-enabled) -->
 
-<!-- Repeat for all modals, adding alt tags -->
-<!-- Example below -->
-
+<!-- MODALS -->
 
 <div id="modal1" class="modal">
-  <span class="close" onclick="closeModal('modal1')">&times;</span>
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
   <div class="modal-content">
-    <img src="images/ClientFinals1_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
-    <img src="images/ClientProgression1_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+    <img src="images/ClientFinals1_v01.jpg" class="modal-main" alt="Final portrait result">
+    <img src="images/ClientProgression1_v01.jpg" class="modal-overlay-thumb" alt="Source photo">
   </div>
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
 
 <div id="modal2" class="modal">
-  <span class="close" onclick="closeModal('modal2')">&times;</span>
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
   <div class="modal-content">
-    <img src="images/ClientFinals2_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
-    <img src="images/ClientProgression2_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+    <img src="images/ClientFinals2_v01.jpg" class="modal-main" alt="Final portrait result">
+    <img src="images/ClientProgression2_v01.jpg" class="modal-overlay-thumb" alt="Source photo">
   </div>
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
 
 <div id="modal3" class="modal">
-  <span class="close" onclick="closeModal('modal3')">&times;</span>
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
   <div class="modal-content">
-    <img src="images/ClientFinals3_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
-    <img src="images/ClientProgression3_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+    <img src="images/ClientFinals3_v01.jpg" class="modal-main" alt="Final portrait result">
+    <img src="images/ClientProgression3_v01.jpg" class="modal-overlay-thumb" alt="Source photo">
   </div>
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
-
 
 <div id="modal5" class="modal">
-  <span class="close" onclick="closeModal('modal5')">&times;</span>
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
   <div class="modal-content">
-    <img src="images/ClientFinals5_v01.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
-    <img src="images/ClientProgression5_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+    <img src="images/ClientFinals5_v01.jpg" class="modal-main" alt="Final portrait result">
+    <img src="images/ClientProgression5_v01.jpg" class="modal-overlay-thumb" alt="Source photo">
   </div>
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
-
 
 <div id="modal4" class="modal">
-  <span class="close" onclick="closeModal('modal4')">&times;</span>
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
   <div class="modal-content">
-    <img src="images/ClientFinals4_v03.jpg" class="modal-main" alt="Digi-Profile used to generate portrait">
-    <img src="images/ClientProgression4_v01.jpg" class="modal-overlay-thumb" alt="Final portrait result">
+    <img src="images/ClientFinals4_v03.jpg" class="modal-main" alt="Final portrait result">
+    <img src="images/ClientProgression4_v01.jpg" class="modal-overlay-thumb" alt="Source photo">
   </div>
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
 
-
-
-<!-- (Repeat same alt pattern for other modals) -->
 
 <section id="how-it-works">
   <h2>How It Works</h2>
@@ -157,54 +205,54 @@
   <div class="pricing-wrapper">
     <div class="pricing-grid">
 
-    <div class="pricing-card">
-      <h3>Essential</h3>
-      <div class="price">$90</div>
-      <ul>
-        <li>1 High quality portrait</li>
-        <li>1 Digi-Profile created</li>
-        <li>Choose your own attire and background</li>
-        <li>Fast turn around (24-48hrs)</li>
-      </ul>
-      <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Essential%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Essential%20package.%0A%0AName%3A%20%0ABusiness%3A%20%0AHow%20I%27d%20like%20to%20be%20portrayed%3A%20%0ADetails%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+      <div class="pricing-card">
+        <h3>Essential</h3>
+        <div class="price">$90</div>
+        <ul>
+          <li>1 High quality portrait</li>
+          <li>1 Digi-Profile created</li>
+          <li>Choose your own attire and background</li>
+          <li>Fast turn around (24-48hrs)</li>
+        </ul>
+        <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Essential%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Essential%20package.%0A%0AName%3A%20%0ABusiness%3A%20%0AHow%20I%27d%20like%20to%20be%20portrayed%3A%20%0ADetails%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+      </div>
+
+      <div class="pricing-card featured">
+        <div class="badge">Most Popular</div>
+        <h3>Professional</h3>
+        <div class="price">$175</div>
+        <ul>
+          <li>3 High quality portraits</li>
+          <li>1 Digi-Profile created</li>
+          <li>Multiple background/styles</li>
+          <li>Fast turn around (24-48hrs)</li>
+        </ul>
+        <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Professional%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Professional%20package.%0A%0AName%3A%20%0ABusiness%3A%20%0AOutfit%20ideas%3A%20%0ABackground%20style%3A%20%0AHow%20I%27d%20like%20to%20be%20portrayed%3A%20%0ADetails%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+      </div>
+
+      <div class="pricing-card">
+        <h3>Executive</h3>
+        <div class="price">$220</div>
+        <ul>
+          <li>6 High quality portraits</li>
+          <li>1 Digi-Profile created</li>
+          <li>Multiple background/styles</li>
+          <li>Consultation call and a round of revisions</li>
+          <li>Priority turn around</li>
+        </ul>
+        <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Executive%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Executive%20package.%0A%0ACompany%3A%20%0ANumber%20of%20people%3A%20%0AOutfit%20preferences%3A%20%0ABackground%20style%3A%20%0AHow%20I%27d%20like%20to%20be%20portrayed%3A%20%0ADetails%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
+      </div>
+
     </div>
 
-    <div class="pricing-card featured">
-      <div class="badge">Most Popular</div>
-      <h3>Professional</h3>
-      <div class="price">$175</div>
-      <ul>
-        <li>3 High quality portraits</li>       
-        <li>1 Digi-Profile created</li>
-        <li>Multiple background/styles</li>
-        <li>Fast turn around (24-48hrs)</li>
-      </ul>
-      <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Professional%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Professional%20package.%0A%0AName%3A%20%0ABusiness%3A%20%0AOutfit%20ideas%3A%20%0ABackground%20style%3A%20%0AHow%20I%27d%20like%20to%20be%20portrayed%3A%20%0ADetails%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
-    </div>
+    <div class="pricing-fade-left"></div>
+    <div class="pricing-fade-right"></div>
 
-    <div class="pricing-card">
-      <h3>Executive</h3>
-      <div class="price">$220</div>
-      <ul>
-        <li>6 High quality portraits</li>
-        <li>1 Digi-Profile created</li>
-        <li>Multiple background/styles</li>
-        <li>Consultation call and a round of revisions</li>
-        <li>Priority turn around</li>
-      </ul>
-      <a href="mailto:caleb@digipix.co.nz?subject=DigiPix%20Enquiry%20%E2%80%94%20Executive%20Package&body=Hi%20Caleb%2C%0A%0AI%27m%20interested%20in%20the%20Executive%20package.%0A%0ACompany%3A%20%0ANumber%20of%20people%3A%20%0AOutfit%20preferences%3A%20%0ABackground%20style%3A%20%0AHow%20I%27d%20like%20to%20be%20portrayed%3A%20%0ADetails%3A%20%0A%0ALooking%20forward%20to%20hearing%20from%20you!" class="pricing-cta">Get Started</a>
-    </div>
-
-      </div> <!-- end pricing-grid -->
-
-      <div class="pricing-fade-left"></div>
-      <div class="pricing-fade-right"></div>
-
-    </div> <!-- end pricing-wrapper -->
+  </div>
 
   <p class="pricing-note">
-    Not sure which package suits you? 
-    <a href="mailto:caleb@digipix.co.nz">Get in touch</a> 
+    Not sure which package suits you?
+    <a href="mailto:caleb@digipix.co.nz">Get in touch</a>
     and we'll figure it out together.
   </p>
 </section>
@@ -217,7 +265,6 @@
       <p>Hi, I'm Caleb — the person behind DigiPix.</p>
       <p>After graduating from the New Zealand Film School, I spent 15 years working in visual effects on some of Hollywood's biggest productions. Feel free to check out my history with Hollywood here.</p>
       <a href="https://www.imdb.com/name/nm4307751/" target="_blank" class="imdb-link">View my IMDb page →</a>
-      </p>
       <p>I created Digipix to bring that experience and cutting-edge technology to you — without the Hollywood price tag.</p>
     </div>
   </div>
@@ -309,33 +356,66 @@
 </footer>
 
 <script>
-function openModal(id){
-  document.getElementById(id).style.display="flex";
-  document.body.style.overflow="hidden";
+// Modal order matches gallery display order
+const modalOrder = ['modal1', 'modal2', 'modal3', 'modal5', 'modal4'];
+let currentModalIndex = 0;
+let touchStartX = 0;
+let touchStartY = 0;
+
+function openModal(id) {
+  currentModalIndex = modalOrder.indexOf(id);
+  document.getElementById(id).style.display = "flex";
+  document.body.style.overflow = "hidden";
 }
 
-function closeModal(id){
-  document.getElementById(id).style.display="none";
-  document.body.style.overflow="auto";
+function closeAllModals() {
+  modalOrder.forEach(id => {
+    document.getElementById(id).style.display = "none";
+  });
+  document.body.style.overflow = "auto";
 }
 
-document.addEventListener("keydown", function(e){
-  if(e.key === "Escape"){
-    document.querySelectorAll(".modal").forEach(modal=>{
-      modal.style.display="none";
-    });
-    document.body.style.overflow="auto";
-  }
+function navigateModal(direction) {
+  const currentId = modalOrder[currentModalIndex];
+  document.getElementById(currentId).style.display = "none";
+  currentModalIndex = (currentModalIndex + direction + modalOrder.length) % modalOrder.length;
+  document.getElementById(modalOrder[currentModalIndex]).style.display = "flex";
+}
+
+// Keyboard navigation
+document.addEventListener("keydown", function(e) {
+  const anyOpen = modalOrder.some(id => document.getElementById(id).style.display === "flex");
+  if (!anyOpen) return;
+  if (e.key === "Escape") closeAllModals();
+  if (e.key === "ArrowRight") navigateModal(1);
+  if (e.key === "ArrowLeft") navigateModal(-1);
 });
 
-window.onclick=function(event){
-  document.querySelectorAll(".modal").forEach(modal=>{
-    if(event.target===modal){
-      modal.style.display="none";
-      document.body.style.overflow="auto";
-    }
+// Click backdrop to close
+window.onclick = function(event) {
+  modalOrder.forEach(id => {
+    const modal = document.getElementById(id);
+    if (event.target === modal) closeAllModals();
   });
-}
+};
+
+// Touch swipe
+document.addEventListener("touchstart", function(e) {
+  const anyOpen = modalOrder.some(id => document.getElementById(id).style.display === "flex");
+  if (!anyOpen) return;
+  touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+}, { passive: true });
+
+document.addEventListener("touchend", function(e) {
+  const anyOpen = modalOrder.some(id => document.getElementById(id).style.display === "flex");
+  if (!anyOpen) return;
+  const dx = e.changedTouches[0].screenX - touchStartX;
+  const dy = e.changedTouches[0].screenY - touchStartY;
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+    navigateModal(dx < 0 ? 1 : -1);
+  }
+}, { passive: true });
 
 function scrollGallery(direction) {
   const gallery = document.getElementById("gallery");
