@@ -588,6 +588,26 @@ footer {
   .service-overlay p {
     font-size: 0.8rem;
   }
+
+  /* MOBILE SLIDER */
+  .before-after-slider {
+    margin: 30px auto;
+  }
+
+  .slider-divider::before {
+    width: 52px;
+    height: 52px;
+  }
+
+  .slider::-webkit-slider-thumb {
+    width: 56px;
+    height: 56px;
+  }
+
+  .slider::-moz-range-thumb {
+    width: 56px;
+    height: 56px;
+  }
 }
 </style>
 
@@ -651,6 +671,9 @@ footer {
 }
 
 .service-overlay h3 {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+  text-decoration-thickness: 2px;
   font-size: 1rem;
   line-height: 1.2;
   margin-bottom: 4px;
@@ -663,3 +686,202 @@ footer {
   line-height: 1.3;
   color: #ddd;
 }
+
+/* PRICING SECTION */
+
+.pricing-section{
+  max-width:900px;
+  margin:90px auto;
+  padding:0 20px;
+}
+
+.pricing-section h2{
+  text-align:center;
+  margin-bottom:50px;
+}
+
+
+/* TABLE */
+
+.pricing-table{
+  border-top:1px solid #e5e5e5;
+}
+
+.pricing-row{
+  display:grid;
+  grid-template-columns:2fr 1fr;
+  gap:40px;
+  padding:32px 0;
+  border-bottom:1px solid #e5e5e5;
+}
+
+
+/* SERVICE TEXT */
+
+.pricing-service h3{
+  margin-bottom:8px;
+}
+
+.pricing-service p{
+  color:#555;
+  line-height:1.5;
+}
+
+
+/* PRICE COLUMN */
+
+.pricing-price{
+  text-align:center;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+}
+
+.pricing-price p{
+  font-size:1.25rem;
+  font-weight:600;
+  margin:0;
+}
+
+.pricing-price span{
+  display:block;
+  font-size:0.85rem;
+  color:#777;
+  margin-top:6px;
+}
+
+
+/* GST NOTE */
+
+.pricing-note{
+  text-align:center;
+  font-size:0.85rem;
+  color:#777;
+  margin-top:18px;
+}
+
+
+/* MOBILE */
+
+@media (max-width:700px){
+
+  .pricing-row{
+    grid-template-columns:1fr;
+    gap:12px;
+  }
+
+  .pricing-price{
+    margin-top:6px;
+  }
+
+}
+
+
+
+
+/* BEFORE / AFTER SLIDER */
+
+.before-after-slider {
+  position: relative;
+  max-width: 900px;
+  margin: 60px auto;
+  overflow: hidden;
+  border-radius: 12px;
+  user-select: none;
+}
+
+/* BASE IMAGE (before) — sits underneath, sets the frame size */
+.before-after-slider > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+}
+
+/* TOP LAYER (after image) — full size, clipped by JS via clip-path */
+.after-layer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.after-layer img {
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  /* clip-path is updated by JS to reveal from the left */
+  clip-path: inset(0 50% 0 0);
+}
+
+/* Vertical white divider line */
+.slider-divider {
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 3px;
+  height: 100%;
+  background: white;
+  pointer-events: none;
+  z-index: 4;
+  box-shadow: 0 0 8px rgba(0,0,0,0.5);
+}
+
+/* Circle handle on the divider */
+.slider-divider::before {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: white;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.45);
+}
+
+/* SLIDER INPUT — invisible but interactive, sits on top */
+.slider {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: ew-resize;
+  z-index: 5;
+  margin: 0;
+  padding: 0;
+  touch-action: none;
+}
+
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  -webkit-appearance: none;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  cursor: ew-resize;
+}
+
+.slider::-moz-range-thumb {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: transparent;
+  border: none;
+  cursor: ew-resize;
+}
+
+.slider::-webkit-slider-runnable-track { background: transparent; }
+.slider::-moz-range-track { background: transparent; }

@@ -88,9 +88,32 @@
 <a href="#contact">Contact</a>
 </nav>
 
+
+
+
+
+
 <section id="examples">
 
 <h2>Restoration Examples</h2>
+
+
+
+<div class="before-after-slider">
+
+  <img src="images/restoration-before.jpg" class="before-image" alt="Before restoration">
+
+  <div class="after-layer">
+    <img src="images/restoration-after.jpg" class="after-image" alt="After restoration">
+  </div>
+
+  <div class="slider-divider"></div>
+  <input type="range" min="0" max="100" value="50" class="slider">
+
+</div>
+
+
+
 
 <div class="gallery-wrapper">
 
@@ -166,15 +189,34 @@ Tap or click to view larger
 
 <section id="pricing">
 
-<h2>Pricing</h2>
-<div style="max-width:600px;margin:auto;text-align:center;color:#ccc;">
-<p>$40 per photo and $10 for every additional photo within the same order.</p>
-</div>
+<section class="pricing-section">
+  <h2>Historical Photograph Services</h2>
 
-<div class="cta">
-<a href="mailto:caleb@digipix.co.nz?subject=Photo Restoration Quote">Get in touch</a>
-</div>
+  <div class="pricing-table">
 
+    <div class="pricing-row">
+      <div class="pricing-service">
+        <h3>Restoration & Upscaling</h3>
+        <p>Cleaning up scratches, stains, and artifacts while increasing the visible detail in the image.</p>
+      </div>
+      <div class="pricing-price">
+        <p>$40 per photo</p>
+        <span>$10 for each additional photo in the same order.</span>
+      </div>
+    </div>
+
+    <div class="pricing-row">
+      <div class="pricing-service">
+        <h3>Historical Reframing</h3>
+        <p>Combine photographs together to unite people or places as never before possible.</p>
+      </div>
+      <div class="pricing-price">
+        <p>$50 per image</p>
+      </div>
+    </div>
+
+  </div>
+  <p class="pricing-note">(All prices are GST inclusive)</p>
 </section>
 
 <section id="how">
@@ -186,7 +228,7 @@ Send a scan or photo of your historical image and DigiPix will use advanced rest
 </p>
 
 <div class="cta">
-<a href="mailto:caleb@digipix.co.nz?subject=Photo Restoration Enquiry">Restore Your Photo</a>
+<a href="/cdn-cgi/l/email-protection#fa999b969f98ba9e939d938a9382d49995d49480c5898f98909f998ec7aa92958e95daa89f898e95889b8e939594dabf948b8f938883">Restore Your Photo</a>
 </div>
 
 </section>
@@ -196,7 +238,7 @@ Send a scan or photo of your historical image and DigiPix will use advanced rest
 
 <h2>Get In Touch</h2>
 
-<p>Email: <a href="mailto:caleb@digipix.co.nz">caleb@digipix.co.nz</a></p>
+<p>Email: <a href="/cdn-cgi/l/email-protection#d3b0b2bfb6b193b7bab4baa3baabfdb0bcfdbda9"><span class="__cf_email__" data-cfemail="bcdfddd0d9defcd8d5dbd5ccd5c492dfd392d2c6">[email&#160;protected]</span></a></p>
 
 </section>
 
@@ -205,7 +247,7 @@ Send a scan or photo of your historical image and DigiPix will use advanced rest
 </footer>
 
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 
 const modalOrder = ['modal1', 'modal2', 'modal3', 'modal4'];
 let currentModalIndex = 0;
@@ -278,7 +320,23 @@ function scrollGallery(direction) {
   });
 }
 
-</script>
+// Before/After Slider
+const slider = document.querySelector(".slider");
+const afterImg = document.querySelector(".after-layer img");
+const divider = document.querySelector(".slider-divider");
 
+function updateSlider(val) {
+  const pct = 100 - val;
+  afterImg.style.clipPath = `inset(0 ${pct}% 0 0)`;
+  divider.style.left = val + "%";
+}
+
+slider.addEventListener("input", (e) => {
+  updateSlider(e.target.value);
+});
+
+updateSlider(50);
+
+</script>
 </body>
 </html>
