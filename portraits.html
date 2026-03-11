@@ -112,6 +112,10 @@
         <img src="images/ClientProgression4_v01.jpg" loading="lazy" alt="Professional portrait example 4">
       </div>
 
+      <div class="gallery-item" onclick="openModal('modal6')">
+        <img src="images/ClientFinals6_v01.jpg" loading="lazy" alt="Professional portrait example 6">
+      </div>
+
     </div>
 
     <button class="gallery-arrow right" onclick="scrollGallery(1)">&#10095;</button>
@@ -183,6 +187,19 @@
   <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
   <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
+
+<div id="modal6" class="modal">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <div class="modal-content">
+    <img src="images/ClientFinals6_v01.jpg" class="modal-main" alt="Final portrait result">
+    <img src="images/ClientFinals6_v01.jpg" class="modal-overlay-thumb" alt="Source photo">
+  </div>
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
+</div>
+
+
 
 
 <section id="how-it-works">
@@ -357,7 +374,7 @@
 
 <script>
 // Modal order matches gallery display order
-const modalOrder = ['modal1', 'modal2', 'modal3', 'modal5', 'modal4'];
+const modalOrder = ['modal1', 'modal2', 'modal3', 'modal5', 'modal4', 'modal6'];
 let currentModalIndex = 0;
 let touchStartX = 0;
 let touchStartY = 0;
