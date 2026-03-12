@@ -84,6 +84,7 @@
 <a href="#examples">Examples</a>
 <a href="#how">How It Works</a>
 <a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
 <a href="#contact">Contact</a>
 </nav>
 
@@ -187,35 +188,123 @@ Tap or click to view larger
 </div>
 
 <section id="pricing">
-
-<section class="pricing-section">
   <h2>Historical Photograph Services</h2>
 
-  <div class="pricing-table">
+  <style>
+    .restoration-pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 900px;
+      margin: 0 auto 1.5rem;
+    }
 
-    <div class="pricing-row">
-      <div class="pricing-service">
-        <h3>Restoration & Upscaling</h3>
+    .restoration-pricing-card {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .restoration-pricing-card .card-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85);
+    }
+
+    .restoration-pricing-card .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex: 1;
+    }
+
+    .restoration-pricing-card .card-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .restoration-pricing-card .card-body p {
+      color: #aaa;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .restoration-pricing-card .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #1e1e1e;
+      gap: 1rem;
+    }
+
+    .restoration-pricing-card .card-price {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .restoration-pricing-card .card-price-note {
+      font-size: 0.75rem;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    .restoration-pricing-note {
+      text-align: center;
+      color: #666;
+      font-size: 0.85rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 600px) {
+      .restoration-pricing-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="restoration-pricing-grid">
+
+    <div class="restoration-pricing-card">
+      <img class="card-image" src="images/RestorationPricingCard_v01.jpg" alt="Restoration and upscaling example">
+      <div class="card-body">
+        <h3>Restoration &amp; Upscaling</h3>
         <p>Cleaning up scratches, stains, and artifacts while increasing the visible detail in the image.</p>
-      </div>
-      <div class="pricing-price">
-        <p>$40/$10</p>
-        <span>$40 for the first photo and $10 for each additional photo within the same order.</span>
+        <div class="card-footer">
+          <span class="card-price">$40/$10</span>
+          <span class="card-price-note">$40 for the first photo. $10 for each<br>additional in the same order.</span>
+        </div>
       </div>
     </div>
 
-    <div class="pricing-row">
-      <div class="pricing-service">
+    <div class="restoration-pricing-card">
+      <img class="card-image" src="images/ReframingPricingCard_v01.jpg" alt="Reframing History example">
+      <div class="card-body">
         <h3>Reframing History</h3>
         <p>Combine photographs together to unite people or places as never before possible.</p>
-      </div>
-      <div class="pricing-price">
-        <p>$50 per image</p>
+        <div class="card-footer">
+          <span class="card-price">$50</span>
+          <span class="card-price-note">Per image</span>
+        </div>
       </div>
     </div>
 
   </div>
-  <p class="pricing-note">(All prices are GST inclusive)</p>
+
+  <p class="restoration-pricing-note">(All prices are GST inclusive)</p>
+
 </section>
 
 <section id="how">
@@ -233,6 +322,74 @@ Digipix uses the very latest of machine learning technology to breathe new life 
 </section>
 
 
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What condition do my photos need to be in?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Almost any condition can be worked with — fading, tears, stains, water damage, scratches, and heavy cracking are all things I deal with regularly. The worse the damage, the more dramatic the result. Just send through what you have and I'll let you know what's possible.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How should I send my photos?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>A high-resolution scan is ideal — most modern flatbed scanners or printer-scanners work well. If you don't have a scanner, a well-lit phone photo taken flat on a surface (avoid angles and shadows) is usually fine. The higher the resolution you can provide, the better the final result.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What is "Reframing History"?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>This service lets you combine people or places from separate photographs into a single image — for example, bringing together a family portrait where the original photos were taken years apart, or placing relatives who never met side by side. Get in touch with your idea and I'll let you know if it's achievable.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How long does restoration take?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Most single-photo restorations are turned around within 1–3 business days. More complex work — heavily damaged images or Reframing History composites — may take a little longer. I'll give you a clear timeframe when you get in touch.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Will my original photos be kept safe?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Your images are used solely to complete your restoration and are not shared or used for any other purpose. Once your final files are delivered, your original images are deleted from my system.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can you restore a whole collection of photos?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes — the $10 per additional photo pricing is designed exactly for this. Get in touch with the size of your collection and I can put together a quote.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <section id="contact" class="contact">
 
 <h2>Get In Touch</h2>
@@ -247,6 +404,11 @@ Digipix uses the very latest of machine learning technology to breathe new life 
 
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
 
 const modalOrder = ['modal1', 'modal2', 'modal3', 'modal4'];
 let currentModalIndex = 0;
