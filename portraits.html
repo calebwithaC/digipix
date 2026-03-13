@@ -389,6 +389,11 @@
 </footer>
 
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
 // Modal order matches gallery display order
 const modalOrder = ['modal1', 'modal2', 'modal3', 'modal5', 'modal4', 'modal6'];
 let currentModalIndex = 0;
