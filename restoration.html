@@ -193,9 +193,9 @@ Tap or click to view larger
   <style>
     .restoration-pricing-grid {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr 1fr 1fr;
       gap: 1.5rem;
-      max-width: 900px;
+      max-width: 1200px;
       margin: 0 auto 1.5rem;
     }
 
@@ -268,7 +268,13 @@ Tap or click to view larger
       margin: 0 auto;
     }
 
-    @media (max-width: 600px) {
+    @media (max-width: 800px) {
+      .restoration-pricing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
       .restoration-pricing-grid {
         grid-template-columns: 1fr;
       }
@@ -297,6 +303,18 @@ Tap or click to view larger
         <div class="card-footer">
           <span class="card-price">$50</span>
           <span class="card-price-note">Per image</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="restoration-pricing-card">
+      <img class="card-image" src="images/ColourisationPricingCard_v01.jpg" alt="Colourization example">
+      <div class="card-body">
+        <h3>Colourization</h3>
+        <p>Breathe new life into your photographs with colour.</p>
+        <div class="card-footer">
+          <span class="card-price">$40</span>
+          <span class="card-price-note">Per photo</span>
         </div>
       </div>
     </div>
