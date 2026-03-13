@@ -236,6 +236,8 @@
   <h2>Pricing</h2>
 
   <div class="pricing-wrapper">
+    <button class="pricing-arrow left" onclick="scrollPricing(-1)">&#10094;</button>
+    <button class="pricing-arrow right" onclick="scrollPricing(1)">&#10095;</button>
     <div class="pricing-grid">
 
       <div class="pricing-card">
@@ -454,6 +456,13 @@ document.addEventListener("touchend", function(e) {
     navigateModal(dx < 0 ? 1 : -1);
   }
 }, { passive: true });
+
+function scrollPricing(direction) {
+  const grid = document.querySelector(".pricing-grid");
+  const card = grid.querySelector(".pricing-card");
+  const cardWidth = card.offsetWidth + 16;
+  grid.scrollBy({ left: direction * cardWidth, behavior: "smooth" });
+}
 
 function scrollGallery(direction) {
   const gallery = document.getElementById("gallery");
