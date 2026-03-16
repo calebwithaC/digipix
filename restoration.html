@@ -137,6 +137,10 @@
 <img src="images/restoration_example4.jpg" loading="lazy" alt="Historical photo restoration example 4">
 </div>
 
+<div class="gallery-item" onclick="openModal('modal5')">
+<img src="images/restoration_example5.jpg" loading="lazy" alt="Historical photo restoration example 5">
+</div>
+
 </div>
 
 <button class="gallery-arrow right" onclick="scrollGallery(1)">&#10095;</button>
@@ -183,6 +187,14 @@ Tap or click to view larger
   <span class="close" onclick="closeAllModals()">&times;</span>
   <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
   <img class="modal-image" src="images/restoration_example4.jpg" alt="Restoration example 4">
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
+</div>
+
+<div id="modal5" class="modal">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <img class="modal-image" src="images/restoration_example5.jpg" alt="Restoration example 5">
   <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
   <span class="modal-swipe-hint">← swipe to navigate →</span>
 </div>
@@ -428,7 +440,7 @@ function toggleFaq(btn) {
   item.classList.toggle('open');
 }
 
-const modalOrder = ['modal1', 'modal2', 'modal3', 'modal4'];
+const modalOrder = ['modal1', 'modal2', 'modal3', 'modal4', 'modal5'];
 let currentModalIndex = 0;
 let touchStartX = 0;
 let touchStartY = 0;
