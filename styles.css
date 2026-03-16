@@ -61,6 +61,7 @@ section h2 {
   scroll-snap-type: x mandatory;
   scroll-behavior: smooth;
   padding: 1rem 4rem;
+  align-items: center;
 }
 
 .gallery::-webkit-scrollbar { display: none; }
