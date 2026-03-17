@@ -425,6 +425,37 @@ nav a:hover { color: #38bdf8; }
 
 .imdb-link:hover { text-decoration: underline; }
 
+/* ===== TESTIMONIAL ===== */
+
+.testimonial-section {
+  text-align: center;
+}
+
+.testimonial {
+  max-width: 680px;
+  margin: 0 auto;
+  border-left: 3px solid #38bdf8;
+  padding: 1.5rem 2rem;
+  background: #0d0d0d;
+  border-radius: 0 12px 12px 0;
+  text-align: left;
+}
+
+.testimonial p {
+  color: #ccc;
+  font-size: 1rem;
+  line-height: 1.8;
+  font-style: italic;
+  margin-bottom: 1rem;
+}
+
+.testimonial cite {
+  color: #38bdf8;
+  font-size: 0.9rem;
+  font-weight: 600;
+  font-style: normal;
+}
+
 /* ===== FAQ ===== */
 
 .faq-list {
