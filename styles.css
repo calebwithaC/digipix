@@ -743,7 +743,7 @@ footer {
 
 /* ===== HOME CTA BUTTON ===== */
 
-.home-cta {
+a.home-cta {
   display: inline-block;
   margin-top: 1.5rem;
   background: #38bdf8;
@@ -756,7 +756,7 @@ footer {
   transition: background 0.2s;
 }
 
-.home-cta:hover { background: #0ea5e9; }
+a.home-cta:hover { background: #0ea5e9; color: #000; }
 
 /* ===== SERVICE SELECTION ===== */
 
