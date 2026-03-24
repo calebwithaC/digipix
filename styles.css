@@ -726,6 +726,38 @@ footer {
   }
 }
 
+/* ===== HOME HOOK ===== */
+
+.home-hook {
+  text-align: center;
+  padding: 2rem 2rem 0;
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.home-hook p {
+  color: #aaa;
+  font-size: 1.05rem;
+  line-height: 1.7;
+}
+
+/* ===== HOME CTA BUTTON ===== */
+
+.home-cta {
+  display: inline-block;
+  margin-top: 1.5rem;
+  background: #38bdf8;
+  color: #000;
+  font-weight: 700;
+  font-size: 1rem;
+  padding: 0.9rem 2.2rem;
+  border-radius: 40px;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.home-cta:hover { background: #0ea5e9; }
+
 /* ===== SERVICE SELECTION ===== */
 
 .service-selection {
