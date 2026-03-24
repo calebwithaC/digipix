@@ -337,6 +337,91 @@ Tap or click to view larger
 
 </section>
 
+<section id="testimonials" class="testimonial-section">
+
+  <style>
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 16px;
+      padding: 2rem 1.75rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      font-size: 4rem;
+      line-height: 1;
+      color: #4a90d9;
+      font-family: Georgia, serif;
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+    }
+
+    .testimonial-card p {
+      color: #ccc;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin: 0;
+      padding-top: 1.5rem;
+    }
+
+    .testimonial-card cite {
+      display: block;
+      color: #666;
+      font-size: 0.85rem;
+      font-style: normal;
+      border-top: 1px solid #4a90d9;
+      padding-top: 0.75rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 800px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="testimonial-grid">
+
+    <div class="testimonial-card">
+      <p>... the photos have come up amazingly. Especially the big group, now you can see features. I am so happy thank you!</p>
+      <cite>— Maureen</cite>
+    </div>
+
+    <div class="testimonial-card">
+      <p>Thanks Caleb for restoring a treasured photo from a long time ago. It was badly damaged and you brought it back to life with amazing colours and detail. Thanks again, much appreciated.</p>
+      <cite>— Hans</cite>
+    </div>
+
+    <div class="testimonial-card">
+      <p>Thank you Caleb for the photos you restored, I had just about given up on using them, you have made them usable in my retelling of family stories.</p>
+      <cite>— Nancy</cite>
+    </div>
+
+  </div>
+
+</section>
+
 <section id="how">
 
 <h2>How It Works</h2>
@@ -352,12 +437,6 @@ I use the very latest machine learning tools to help me breathe new life into hi
 </section>
 
 
-<section id="testimonials" class="testimonial-section">
-  <blockquote class="testimonial">
-    <p>"Thanks Caleb for restoring a treasured photo from a long time ago. It was badly damaged and you brought it back to life with amazing colours and detail. Thanks again, much appreciated."</p>
-    <cite>— Hans</cite>
-  </blockquote>
-</section>
 
 <section id="faq">
   <h2>Frequently Asked Questions</h2>
