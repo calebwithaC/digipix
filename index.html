@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-
+<head> 
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>DigiPix | Modern Age Portraits & Photo Restoration</title>
+<title>DigiPix | Historical Photo Restoration Wellington</title>
 
-<meta name="description" content="AI generated portraits and historical photo restoration by DigiPix.">
+<meta name="description" content="Professional historical photo restoration in Wellington, New Zealand. Repair damaged, faded, and torn photographs using the latest technology.">
 
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -15,87 +14,616 @@
 
 <link rel="stylesheet" href="styles.css">
 
+<style>
+  /* Restoration modal: single image, constrained to viewport */
+  .modal-image {
+    max-width: 90vw;
+    max-height: 85vh;
+    width: auto;
+    height: auto;
+    border-radius: 14px;
+    display: block;
+    box-shadow: 0 25px 70px rgba(0,0,0,0.7);
+    object-fit: contain;
+  }
+
+  /* Swipe hint on mobile */
+  .modal-swipe-hint {
+    position: absolute;
+    bottom: 16px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: rgba(255,255,255,0.4);
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    pointer-events: none;
+  }
+
+  /* Modal nav arrows */
+  .modal-nav {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0,0,0,0.5);
+    border: 1px solid #333;
+    color: #fff;
+    font-size: 1.6rem;
+    width: 44px;
+    height: 44px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.2s;
+    z-index: 10;
+    user-select: none;
+  }
+
+  .modal-nav:hover { background: rgba(0,0,0,0.85); }
+  .modal-nav.prev { left: 12px; }
+  .modal-nav.next { right: 12px; }
+
+  @media (max-width: 768px) {
+    .modal-nav { display: none; }
+  }
+</style>
+
 </head>
 
 <body>
 
 <header>
-<a href="index.html">
+<a href="#examples">
 <img src="images/Digipix_logo_v06.jpg" alt="DigiPix logo">
 </a>
-<p>15 years of experience, delivering sharper, more powerful imagery than ever before.</p>
 </header>
 
+<nav>
+<a href="#examples">Examples</a>
+<a href="#how">How It Works</a>
+<a href="#pricing">Pricing</a>
+<a href="#faq">FAQ</a>
+<a href="#contact">Contact</a>
+<a href="portraits.html" class="nav-extra-services">Extra Services</a>
+</nav>
 
 
-<!-- SERVICES -->
-<section class="service-selection">
 
-<h2>Choose a Service</h2>
 
-<div class="service-grid">
 
-<a href="portraits.html" class="service-card">
-<img src="images/portraits_preview.jpg" alt="AI Portraits">
-<div class="service-overlay">
-<h3>Personal Portraits</h3>
-<p>Create incredible bespoke portraits.</p>
+
+<section id="examples">
+
+<h2>History revealed as never before possible.</h2>
+
+
+
+<div class="before-after-slider">
+
+  <img src="images/restoration-before.jpg" class="before-image" alt="Before restoration">
+
+  <div class="after-layer">
+    <img src="images/restoration-after.jpg" class="after-image" alt="After restoration">
+  </div>
+
+  <div class="slider-divider"></div>
+  <input type="range" min="0" max="100" value="50" class="slider">
+
 </div>
-</a>
 
-<a href="restoration.html" class="service-card">
-<img src="images/restoration_preview.jpg" alt="Historical Restoration">
-<div class="service-overlay">
-<h3>Photo Restoration</h3>
-<p>Revive historical photographs.</p>
+
+
+
+<div class="gallery-wrapper">
+
+<button class="gallery-arrow left" onclick="scrollGallery(-1)">&#10094;</button>
+
+<div class="gallery" id="gallery">
+
+<div class="gallery-item" onclick="openModal('modal1')">
+<img src="images/restoration_example1.jpg" loading="lazy" alt="Historical photo restoration example 1">
 </div>
-</a>
+
+<div class="gallery-item" onclick="openModal('modal2')">
+<img src="images/restoration_example2.jpg" loading="lazy" alt="Historical photo restoration example 2">
+</div>
+
+<div class="gallery-item" onclick="openModal('modal3')">
+<img src="images/restoration_example3.jpg" loading="lazy" alt="Historical photo restoration example 3">
+</div>
+
+<div class="gallery-item" onclick="openModal('modal4')">
+<img src="images/restoration_example4.jpg" loading="lazy" alt="Historical photo restoration example 4">
+</div>
+
+<div class="gallery-item" onclick="openModal('modal5')">
+<img src="images/restoration_example5.jpg" loading="lazy" alt="Historical photo restoration example 5">
+</div>
+
+</div>
+
+<button class="gallery-arrow right" onclick="scrollGallery(1)">&#10095;</button>
+
+<div class="fade-left"></div>
+<div class="fade-right"></div>
+
+<p class="gallery-note">
+Tap or click to view larger
+</p>
 
 </div>
 
 </section>
 
 
-<!-- TESTIMONIAL -->
-<section class="testimonial-section">
-  <div class="testimonial-grid testimonial-grid--single">
+<!-- MODALS -->
+
+<div id="modal1" class="modal">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <img class="modal-image" src="images/restoration_example1.jpg" alt="Restoration example 1">
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
+</div>
+
+<div id="modal2" class="modal">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <img class="modal-image" src="images/restoration_example2.jpg" alt="Restoration example 2">
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
+</div>
+
+<div id="modal3" class="modal">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <img class="modal-image" src="images/restoration_example3.jpg" alt="Restoration example 3">
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
+</div>
+
+<div id="modal4" class="modal">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <img class="modal-image" src="images/restoration_example4.jpg" alt="Restoration example 4">
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
+</div>
+
+<div id="modal5" class="modal">
+  <span class="close" onclick="closeAllModals()">&times;</span>
+  <button class="modal-nav prev" onclick="navigateModal(-1)">&#10094;</button>
+  <img class="modal-image" src="images/restoration_example5.jpg" alt="Restoration example 5">
+  <button class="modal-nav next" onclick="navigateModal(1)">&#10095;</button>
+  <span class="modal-swipe-hint">← swipe to navigate →</span>
+</div>
+
+<section id="pricing">
+  <h2>Historical Photograph Services</h2>
+
+  <style>
+    .restoration-pricing-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto 1.5rem;
+    }
+
+    .restoration-pricing-card {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 16px;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .restoration-pricing-card .card-image {
+      width: 100%;
+      aspect-ratio: 4 / 3;
+      object-fit: cover;
+      display: block;
+      filter: brightness(0.85);
+    }
+
+    .restoration-pricing-card .card-body {
+      padding: 1.5rem;
+      display: flex;
+      flex-direction: column;
+      gap: 0.6rem;
+      flex: 1;
+    }
+
+    .restoration-pricing-card .card-body h3 {
+      font-size: 1.1rem;
+      font-weight: 700;
+      color: #fff;
+    }
+
+    .restoration-pricing-card .card-body p {
+      color: #aaa;
+      font-size: 0.88rem;
+      line-height: 1.6;
+      flex: 1;
+    }
+
+    .restoration-pricing-card .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px solid #1e1e1e;
+      gap: 1rem;
+    }
+
+    .restoration-pricing-card .card-price {
+      font-size: 1.6rem;
+      font-weight: 700;
+      color: #fff;
+      white-space: nowrap;
+    }
+
+    .restoration-pricing-card .card-price-note {
+      font-size: 0.75rem;
+      color: #666;
+      line-height: 1.4;
+    }
+
+    .restoration-pricing-note {
+      text-align: center;
+      color: #666;
+      font-size: 0.85rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    @media (max-width: 800px) {
+      .restoration-pricing-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .restoration-pricing-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .restoration-pricing-card {
+        background: #141414;
+        border-color: #333;
+      }
+
+      .restoration-pricing-card .card-footer {
+        border-top-color: #333;
+      }
+    }
+  </style>
+
+  <div class="restoration-pricing-grid">
+
+    <div class="restoration-pricing-card">
+      <img class="card-image" src="images/RestorationPricingCard_v01.jpg" alt="Restoration and upscaling example">
+      <div class="card-body">
+        <h3>Restoration &amp; Upscaling</h3>
+        <p>Cleaning up scratches, stains, and artifacts while increasing the visible detail in the image.</p>
+        <div class="card-footer">
+          <span class="card-price">$40/$10</span>
+          <span class="card-price-note">$40 for the first photo. $10 for each<br>additional in the same order.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="restoration-pricing-card">
+      <img class="card-image" src="images/ReframingPricingCard_v01.jpg" alt="Reframing History example">
+      <div class="card-body">
+        <h3>Reframing History</h3>
+        <p>Combine photographs together to unite people or places as never before possible.</p>
+        <div class="card-footer">
+          <span class="card-price">$50</span>
+          <span class="card-price-note">Per image</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="restoration-pricing-card">
+      <img class="card-image" src="images/ColourisationPricingCard_v01.jpg" alt="Colourization example">
+      <div class="card-body">
+        <h3>Colourization</h3>
+        <p>Breathe new life into your photographs with colour.</p>
+        <div class="card-footer">
+          <span class="card-price">$40</span>
+          <span class="card-price-note">Per photo</span>
+        </div>
+      </div>
+    </div>
+
+  </div>
+
+  <p class="restoration-pricing-note">(All prices are GST inclusive)</p>
+
+</section>
+
+<section id="testimonials" class="testimonial-section">
+
+  <style>
+    .testimonial-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1.5rem;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .testimonial-card {
+      background: #0d0d0d;
+      border: 1px solid #1e1e1e;
+      border-radius: 16px;
+      padding: 2rem 1.75rem 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+    }
+
+    .testimonial-card::before {
+      content: '\201C';
+      font-size: 4rem;
+      line-height: 1;
+      color: #4a90d9;
+      font-family: Georgia, serif;
+      position: absolute;
+      top: 1rem;
+      left: 1.5rem;
+    }
+
+    .testimonial-card p {
+      color: #ccc;
+      font-size: 0.92rem;
+      line-height: 1.7;
+      margin: 0;
+      padding-top: 1.5rem;
+    }
+
+    .testimonial-card cite {
+      display: block;
+      color: #666;
+      font-size: 0.85rem;
+      font-style: normal;
+      border-top: 1px solid #4a90d9;
+      padding-top: 0.75rem;
+      margin-top: auto;
+    }
+
+    @media (max-width: 800px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr 1fr;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .testimonial-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+
+  <div class="testimonial-grid">
+
     <div class="testimonial-card">
-      <p>I'm amazed, these look incredible! Thanks so much — will be recommending you to everyone.</p>
-      <cite>— Tess</cite>
+      <p>... the photos have come up amazingly. Especially the big group, now you can see features. I am so happy thank you!</p>
+      <cite>— Maureen</cite>
     </div>
-  </div>
-</section>
 
-
-<!-- ABOUT -->
-<section id="about" class="about">
-
-  <h2>About DigiPix</h2>
-  <div class="about-inner">
-    <div class="about-text">
-      <p>Hi, I'm Caleb — the person behind DigiPix.</p>
-      <p>After graduating from the New Zealand Film School, I spent 15 years working in visual effects on some of Hollywood's biggest productions.</p>
-      <a href="https://www.imdb.com/name/nm4307751/" target="_blank" class="imdb-link">View my IMDb page →</a>
-      <p>I created DigiPix to bring that experience and cutting-edge technology to you — without the Hollywood price tag.</p>
+    <div class="testimonial-card">
+      <p>Thanks Caleb for restoring a treasured photo from a long time ago. It was badly damaged and you brought it back to life with amazing colours and detail. Thanks again, much appreciated.</p>
+      <cite>— Hans</cite>
     </div>
+
+    <div class="testimonial-card">
+      <p>Thank you Caleb for the photos you restored, I had just about given up on using them, you have made them usable in my retelling of family stories.</p>
+      <cite>— Nancy</cite>
+    </div>
+
   </div>
 
 </section>
 
+<section id="how">
 
-<!-- CONTACT -->
+<h2>How It Works</h2>
+
+<p style="max-width:700px;margin:auto;text-align:center;color:#ccc;">
+I use the very latest machine learning tools to help me breathe new life into historical photographs. I can restore and enhance details in damaged or faded images to an extent that has only been achievable in the last few months. You can even unite people and places in ways never before possible. Send a scan or photo of your historical image with a description of what you would like and DigiPix will do the rest.
+</p>
+
+<div class="cta">
+<a href="mailto:caleb@digipix.co.nz">Restore Your Photo</a>
+</div>
+
+</section>
+
+
+
+<section id="faq">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What condition do my photos need to be in?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Almost any condition can be worked with — fading, tears, stains, water damage, scratches, and heavy cracking are all things I deal with regularly. The worse the damage, the more dramatic the result. Just send through what you have and I'll let you know what's possible.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How should I send my photos?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>A high-resolution scan is ideal — most modern flatbed scanners or printer-scanners work well. If you don't have a scanner, a well-lit phone photo taken flat on a surface (avoid angles and shadows) is usually fine. The higher the resolution you can provide, the better the final result.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        What is "Reframing History"?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>This service lets you combine people or places from separate photographs into a single image — for example, bringing together a family portrait where the original photos were taken years apart, or placing relatives who never met side by side. Get in touch with your idea and I'll let you know if it's achievable.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        How long does restoration take?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Most single-photo restorations are turned around within 1–3 business days. More complex work — heavily damaged images or Reframing History composites — may take a little longer. I'll give you a clear timeframe when you get in touch.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Will my original photos be kept safe?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Your images are used solely to complete your restoration and are not shared or used for any other purpose. Once your final files are delivered, your original images are deleted from my system.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        Can you restore a whole collection of photos?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        <p>Yes — the $10 per additional photo pricing is designed exactly for this. Get in touch with the size of your collection and I can put together a quote.</p>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
 <section id="contact" class="contact">
 
-  <h2>Ready to Elevate Your Image?</h2>
-  <p>Based in Wellington, New Zealand. Fast turnaround, personal service.</p>
-  <a href="mailto:caleb@digipix.co.nz" class="home-cta">Get In Touch</a>
+<h2>Get In Touch</h2>
+
+<p>Email: <a href="mailto:caleb@digipix.co.nz">caleb@digipix.co.nz</a></p>
 
 </section>
-
 
 <footer>
 © 2026 DigiPix | Wellington, New Zealand
 </footer>
 
+
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  item.classList.toggle('open');
+}
+
+const modalOrder = ['modal1', 'modal2', 'modal3', 'modal4', 'modal5'];
+let currentModalIndex = 0;
+let touchStartX = 0;
+let touchStartY = 0;
+
+function openModal(id) {
+  currentModalIndex = modalOrder.indexOf(id);
+  document.getElementById(id).style.display = "flex";
+  document.body.style.overflow = "hidden";
+}
+
+function closeAllModals() {
+  modalOrder.forEach(id => {
+    document.getElementById(id).style.display = "none";
+  });
+  document.body.style.overflow = "auto";
+}
+
+function navigateModal(direction) {
+  const currentId = modalOrder[currentModalIndex];
+  document.getElementById(currentId).style.display = "none";
+  currentModalIndex = (currentModalIndex + direction + modalOrder.length) % modalOrder.length;
+  document.getElementById(modalOrder[currentModalIndex]).style.display = "flex";
+}
+
+// Keyboard navigation
+document.addEventListener("keydown", function(e) {
+  const anyOpen = modalOrder.some(id => document.getElementById(id).style.display === "flex");
+  if (!anyOpen) return;
+  if (e.key === "Escape") closeAllModals();
+  if (e.key === "ArrowRight") navigateModal(1);
+  if (e.key === "ArrowLeft") navigateModal(-1);
+});
+
+// Click backdrop to close
+window.onclick = function(event) {
+  modalOrder.forEach(id => {
+    const modal = document.getElementById(id);
+    if (event.target === modal) closeAllModals();
+  });
+};
+
+// Touch swipe
+document.addEventListener("touchstart", function(e) {
+  const anyOpen = modalOrder.some(id => document.getElementById(id).style.display === "flex");
+  if (!anyOpen) return;
+  touchStartX = e.changedTouches[0].screenX;
+  touchStartY = e.changedTouches[0].screenY;
+}, { passive: true });
+
+document.addEventListener("touchend", function(e) {
+  const anyOpen = modalOrder.some(id => document.getElementById(id).style.display === "flex");
+  if (!anyOpen) return;
+  const dx = e.changedTouches[0].screenX - touchStartX;
+  const dy = e.changedTouches[0].screenY - touchStartY;
+  // Only trigger if horizontal swipe is dominant and long enough
+  if (Math.abs(dx) > Math.abs(dy) && Math.abs(dx) > 40) {
+    navigateModal(dx < 0 ? 1 : -1);
+  }
+}, { passive: true });
+
+function scrollGallery(direction) {
+  const gallery = document.getElementById("gallery");
+  const item = gallery.querySelector(".gallery-item");
+  const itemWidth = item.offsetWidth + 32;
+  gallery.scrollBy({
+    left: direction * itemWidth,
+    behavior: "smooth"
+  });
+}
+
+// Before/After Slider
+const slider = document.querySelector(".slider");
+const afterImg = document.querySelector(".after-layer img");
+const divider = document.querySelector(".slider-divider");
+
+function updateSlider(val) {
+  const pct = 100 - val;
+  afterImg.style.clipPath = `inset(0 ${pct}% 0 0)`;
+  divider.style.left = val + "%";
+}
+
+slider.addEventListener("input", (e) => {
+  updateSlider(e.target.value);
+});
+
+updateSlider(50);
+
+</script>
 </body>
 </html>

@@ -281,6 +281,19 @@ nav a {
 
 nav a:hover { color: #38bdf8; }
 
+.nav-extra-services {
+  color: #aaa !important;
+  border: 1px solid #333;
+  border-radius: 20px;
+  padding: 0.25rem 0.85rem;
+  transition: color 0.2s, border-color 0.2s !important;
+}
+
+.nav-extra-services:hover {
+  color: #38bdf8 !important;
+  border-color: #38bdf8;
+}
+
 /* ===== PRICING ===== */
 
 .pricing-grid {
